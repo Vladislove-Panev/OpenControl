@@ -18,6 +18,10 @@
 		8BF087B12A1A69BE000F7846 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF087B02A1A69BE000F7846 /* RegistrationViewController.swift */; };
 		8BF087B32A1A69D6000F7846 /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF087B22A1A69D6000F7846 /* RegistrationPresenter.swift */; };
 		8BF087B52A1A69E3000F7846 /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF087B42A1A69E3000F7846 /* RegistrationModel.swift */; };
+		8BF087B72A1A6AE6000F7846 /* RegisterUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF087B62A1A6AE6000F7846 /* RegisterUserRequest.swift */; };
+		8BF087B92A1A6C6B000F7846 /* AuthenticationUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF087B82A1A6C6B000F7846 /* AuthenticationUserResponse.swift */; };
+		8BF087BB2A1A6DAF000F7846 /* AdminLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF087BA2A1A6DAF000F7846 /* AdminLoginRequest.swift */; };
+		8BF087BD2A1A6E17000F7846 /* UserLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF087BC2A1A6E17000F7846 /* UserLoginRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		8BF087B02A1A69BE000F7846 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		8BF087B22A1A69D6000F7846 /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
 		8BF087B42A1A69E3000F7846 /* RegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
+		8BF087B62A1A6AE6000F7846 /* RegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRequest.swift; sourceTree = "<group>"; };
+		8BF087B82A1A6C6B000F7846 /* AuthenticationUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUserResponse.swift; sourceTree = "<group>"; };
+		8BF087BA2A1A6DAF000F7846 /* AdminLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLoginRequest.swift; sourceTree = "<group>"; };
+		8BF087BC2A1A6E17000F7846 /* UserLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,16 +198,36 @@
 		8BF087A32A1A692B000F7846 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				8BF087A42A1A692B000F7846 /* Registration */,
+				8BF087A42A1A692B000F7846 /* Auth */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
 		};
-		8BF087A42A1A692B000F7846 /* Registration */ = {
+		8BF087A42A1A692B000F7846 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				8BF087BF2A1A6E62000F7846 /* Responses */,
+				8BF087BE2A1A6E5A000F7846 /* Requests */,
 			);
-			path = Registration;
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		8BF087BE2A1A6E5A000F7846 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				8BF087B62A1A6AE6000F7846 /* RegisterUserRequest.swift */,
+				8BF087BA2A1A6DAF000F7846 /* AdminLoginRequest.swift */,
+				8BF087BC2A1A6E17000F7846 /* UserLoginRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		8BF087BF2A1A6E62000F7846 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				8BF087B82A1A6C6B000F7846 /* AuthenticationUserResponse.swift */,
+			);
+			path = Responses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,14 +300,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BF087BD2A1A6E17000F7846 /* UserLoginRequest.swift in Sources */,
 				8BF087AB2A1A692B000F7846 /* Endpoint.swift in Sources */,
+				8BF087BB2A1A6DAF000F7846 /* AdminLoginRequest.swift in Sources */,
 				8BF087B32A1A69D6000F7846 /* RegistrationPresenter.swift in Sources */,
 				8BF087A82A1A692B000F7846 /* URLSessionNetworkManager.swift in Sources */,
 				8BF087B12A1A69BE000F7846 /* RegistrationViewController.swift in Sources */,
 				8BF087B52A1A69E3000F7846 /* RegistrationModel.swift in Sources */,
 				8BF087A92A1A692B000F7846 /* NetworkManager.swift in Sources */,
+				8BF087B92A1A6C6B000F7846 /* AuthenticationUserResponse.swift in Sources */,
 				8BF0877D2A1A3E42000F7846 /* AppDelegate.swift in Sources */,
 				8BF0877F2A1A3E42000F7846 /* SceneDelegate.swift in Sources */,
+				8BF087B72A1A6AE6000F7846 /* RegisterUserRequest.swift in Sources */,
 				8BF087AC2A1A692B000F7846 /* NetworkEnums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
