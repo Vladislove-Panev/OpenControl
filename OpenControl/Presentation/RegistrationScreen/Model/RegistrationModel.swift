@@ -6,3 +6,20 @@
 //
 
 import Foundation
+
+protocol RegistrationModelOutput: AnyObject {
+    
+}
+
+protocol RegistrationModelInput {
+    var output: RegistrationModelOutput? { get set }
+}
+
+final class RegistrationModel {
+    
+    weak var output: RegistrationModelOutput?
+}
+
+extension RegistrationModel: RegistrationModelInput {
+    
+}

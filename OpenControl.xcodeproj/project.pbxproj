@@ -31,6 +31,7 @@
 		8BF087CE2A1A7202000F7846 /* SlotsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF087CD2A1A7202000F7846 /* SlotsRequest.swift */; };
 		8BF087D02A1A7240000F7846 /* SlotsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF087CF2A1A7240000F7846 /* SlotsResponse.swift */; };
 		8BF087D22A1A7260000F7846 /* ConsultationSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF087D12A1A7260000F7846 /* ConsultationSlot.swift */; };
+		8BF087D72A1A78AB000F7846 /* RegistrationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF087D62A1A78AB000F7846 /* RegistrationAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		8BF087CD2A1A7202000F7846 /* SlotsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotsRequest.swift; sourceTree = "<group>"; };
 		8BF087CF2A1A7240000F7846 /* SlotsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotsResponse.swift; sourceTree = "<group>"; };
 		8BF087D12A1A7260000F7846 /* ConsultationSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultationSlot.swift; sourceTree = "<group>"; };
+		8BF087D62A1A78AB000F7846 /* RegistrationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				8BF087972A1A6876000F7846 /* Model */,
 				8BF087962A1A6871000F7846 /* View */,
 				8BF087952A1A6864000F7846 /* Presenter */,
+				8BF087D52A1A7898000F7846 /* Assembly */,
 			);
 			path = RegistrationScreen;
 			sourceTree = "<group>";
@@ -281,6 +284,14 @@
 			path = Responses;
 			sourceTree = "<group>";
 		};
+		8BF087D52A1A7898000F7846 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				8BF087D62A1A78AB000F7846 /* RegistrationAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -359,6 +370,7 @@
 				8BF087BB2A1A6DAF000F7846 /* AdminLoginRequest.swift in Sources */,
 				8BF087B32A1A69D6000F7846 /* RegistrationPresenter.swift in Sources */,
 				8BF087A82A1A692B000F7846 /* URLSessionNetworkManager.swift in Sources */,
+				8BF087D72A1A78AB000F7846 /* RegistrationAssembly.swift in Sources */,
 				8BF087B12A1A69BE000F7846 /* RegistrationViewController.swift in Sources */,
 				8BF087B52A1A69E3000F7846 /* RegistrationModel.swift in Sources */,
 				8BF087A92A1A692B000F7846 /* NetworkManager.swift in Sources */,
