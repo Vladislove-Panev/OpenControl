@@ -37,6 +37,29 @@
 		8B78C8DE2A1D606100B6C977 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C8DD2A1D606100B6C977 /* Validator.swift */; };
 		8B78C8E12A1E251100B6C977 /* ErrorPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C8E02A1E251100B6C977 /* ErrorPresentable.swift */; };
 		8B78C8E42A1E25DA00B6C977 /* AuthRegData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C8E32A1E25DA00B6C977 /* AuthRegData.swift */; };
+		8B78C8EA2A1E2C5100B6C977 /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C8E62A1E2C5100B6C977 /* TabBarPresenter.swift */; };
+		8B78C8EB2A1E2C5100B6C977 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C8E72A1E2C5100B6C977 /* TabBarController.swift */; };
+		8B78C8EC2A1E2C5100B6C977 /* TabBarAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C8E82A1E2C5100B6C977 /* TabBarAssembly.swift */; };
+		8B78C8ED2A1E2C5100B6C977 /* TabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C8E92A1E2C5100B6C977 /* TabBarModel.swift */; };
+		8B78C9092A1E48F800B6C977 /* Inter-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C8F62A1E48B000B6C977 /* Inter-Black.otf */; };
+		8B78C90A2A1E48FF00B6C977 /* Inter-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C8FC2A1E48B000B6C977 /* Inter-BlackItalic.otf */; };
+		8B78C90B2A1E490200B6C977 /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C8FE2A1E48B000B6C977 /* Inter-Bold.otf */; };
+		8B78C90C2A1E490500B6C977 /* Inter-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C9012A1E48B000B6C977 /* Inter-BoldItalic.otf */; };
+		8B78C90D2A1E490800B6C977 /* Inter-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C9002A1E48B000B6C977 /* Inter-ExtraBold.otf */; };
+		8B78C90E2A1E490B00B6C977 /* Inter-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C9042A1E48B000B6C977 /* Inter-ExtraBoldItalic.otf */; };
+		8B78C90F2A1E490E00B6C977 /* Inter-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C8F72A1E48B000B6C977 /* Inter-ExtraLight.otf */; };
+		8B78C9102A1E491200B6C977 /* Inter-ExtraLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C8F92A1E48B000B6C977 /* Inter-ExtraLightItalic.otf */; };
+		8B78C9112A1E491500B6C977 /* Inter-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C8FA2A1E48B000B6C977 /* Inter-Italic.otf */; };
+		8B78C9122A1E491700B6C977 /* Inter-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C8FD2A1E48B000B6C977 /* Inter-Light.otf */; };
+		8B78C9132A1E491A00B6C977 /* Inter-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C9032A1E48B000B6C977 /* Inter-LightItalic.otf */; };
+		8B78C9142A1E491C00B6C977 /* Inter-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C8F82A1E48B000B6C977 /* Inter-Medium.otf */; };
+		8B78C9152A1E492000B6C977 /* Inter-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C9082A1E48B100B6C977 /* Inter-MediumItalic.otf */; };
+		8B78C9162A1E492400B6C977 /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C9072A1E48B100B6C977 /* Inter-Regular.otf */; };
+		8B78C9172A1E492600B6C977 /* Inter-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C9022A1E48B000B6C977 /* Inter-SemiBold.otf */; };
+		8B78C9182A1E492900B6C977 /* Inter-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C9052A1E48B100B6C977 /* Inter-SemiBoldItalic.otf */; };
+		8B78C9192A1E492B00B6C977 /* Inter-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C8FB2A1E48B000B6C977 /* Inter-Thin.otf */; };
+		8B78C91A2A1E492E00B6C977 /* Inter-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C8FF2A1E48B000B6C977 /* Inter-ThinItalic.otf */; };
+		8B78C91D2A1E4CAD00B6C977 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C91C2A1E4CAD00B6C977 /* UIFont+Extensions.swift */; };
 		8BEE19012A1CA99A0006EEA0 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 8BEE19002A1CA99A0006EEA0 /* RswiftLibrary */; };
 		8BEE19072A1CAA340006EEA0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8BEE19062A1CAA340006EEA0 /* SnapKit */; };
 		8BEE190D2A1CAB280006EEA0 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE19092A1CAB280006EEA0 /* StartPresenter.swift */; };
@@ -103,6 +126,29 @@
 		8B78C8DD2A1D606100B6C977 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		8B78C8E02A1E251100B6C977 /* ErrorPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentable.swift; sourceTree = "<group>"; };
 		8B78C8E32A1E25DA00B6C977 /* AuthRegData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRegData.swift; sourceTree = "<group>"; };
+		8B78C8E62A1E2C5100B6C977 /* TabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
+		8B78C8E72A1E2C5100B6C977 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		8B78C8E82A1E2C5100B6C977 /* TabBarAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarAssembly.swift; sourceTree = "<group>"; };
+		8B78C8E92A1E2C5100B6C977 /* TabBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarModel.swift; sourceTree = "<group>"; };
+		8B78C8F62A1E48B000B6C977 /* Inter-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.otf"; sourceTree = "<group>"; };
+		8B78C8F72A1E48B000B6C977 /* Inter-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.otf"; sourceTree = "<group>"; };
+		8B78C8F82A1E48B000B6C977 /* Inter-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.otf"; sourceTree = "<group>"; };
+		8B78C8F92A1E48B000B6C977 /* Inter-ExtraLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLightItalic.otf"; sourceTree = "<group>"; };
+		8B78C8FA2A1E48B000B6C977 /* Inter-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Italic.otf"; sourceTree = "<group>"; };
+		8B78C8FB2A1E48B000B6C977 /* Inter-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.otf"; sourceTree = "<group>"; };
+		8B78C8FC2A1E48B000B6C977 /* Inter-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BlackItalic.otf"; sourceTree = "<group>"; };
+		8B78C8FD2A1E48B000B6C977 /* Inter-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.otf"; sourceTree = "<group>"; };
+		8B78C8FE2A1E48B000B6C977 /* Inter-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.otf"; sourceTree = "<group>"; };
+		8B78C8FF2A1E48B000B6C977 /* Inter-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ThinItalic.otf"; sourceTree = "<group>"; };
+		8B78C9002A1E48B000B6C977 /* Inter-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.otf"; sourceTree = "<group>"; };
+		8B78C9012A1E48B000B6C977 /* Inter-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BoldItalic.otf"; sourceTree = "<group>"; };
+		8B78C9022A1E48B000B6C977 /* Inter-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.otf"; sourceTree = "<group>"; };
+		8B78C9032A1E48B000B6C977 /* Inter-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-LightItalic.otf"; sourceTree = "<group>"; };
+		8B78C9042A1E48B000B6C977 /* Inter-ExtraBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
+		8B78C9052A1E48B100B6C977 /* Inter-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		8B78C9072A1E48B100B6C977 /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.otf"; sourceTree = "<group>"; };
+		8B78C9082A1E48B100B6C977 /* Inter-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-MediumItalic.otf"; sourceTree = "<group>"; };
+		8B78C91C2A1E4CAD00B6C977 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		8BEE19092A1CAB280006EEA0 /* StartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
 		8BEE190A2A1CAB280006EEA0 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		8BEE190B2A1CAB280006EEA0 /* StartAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAssembly.swift; sourceTree = "<group>"; };
@@ -270,6 +316,74 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		8B78C8E52A1E2C1D00B6C977 /* TabBarScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C8F22A1E2C9300B6C977 /* Model */,
+				8B78C8F12A1E2C8E00B6C977 /* View */,
+				8B78C8F02A1E2C8800B6C977 /* Presenter */,
+				8B78C8EF2A1E2C7F00B6C977 /* Assembly */,
+			);
+			path = TabBarScreen;
+			sourceTree = "<group>";
+		};
+		8B78C8EF2A1E2C7F00B6C977 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C8E82A1E2C5100B6C977 /* TabBarAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		8B78C8F02A1E2C8800B6C977 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C8E62A1E2C5100B6C977 /* TabBarPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		8B78C8F12A1E2C8E00B6C977 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C8E72A1E2C5100B6C977 /* TabBarController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B78C8F22A1E2C9300B6C977 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C8E92A1E2C5100B6C977 /* TabBarModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B78C8F42A1E489900B6C977 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C8F62A1E48B000B6C977 /* Inter-Black.otf */,
+				8B78C8FC2A1E48B000B6C977 /* Inter-BlackItalic.otf */,
+				8B78C8FE2A1E48B000B6C977 /* Inter-Bold.otf */,
+				8B78C9012A1E48B000B6C977 /* Inter-BoldItalic.otf */,
+				8B78C9002A1E48B000B6C977 /* Inter-ExtraBold.otf */,
+				8B78C9042A1E48B000B6C977 /* Inter-ExtraBoldItalic.otf */,
+				8B78C8F72A1E48B000B6C977 /* Inter-ExtraLight.otf */,
+				8B78C8F92A1E48B000B6C977 /* Inter-ExtraLightItalic.otf */,
+				8B78C8FA2A1E48B000B6C977 /* Inter-Italic.otf */,
+				8B78C8FD2A1E48B000B6C977 /* Inter-Light.otf */,
+				8B78C9032A1E48B000B6C977 /* Inter-LightItalic.otf */,
+				8B78C8F82A1E48B000B6C977 /* Inter-Medium.otf */,
+				8B78C9082A1E48B100B6C977 /* Inter-MediumItalic.otf */,
+				8B78C9072A1E48B100B6C977 /* Inter-Regular.otf */,
+				8B78C9022A1E48B000B6C977 /* Inter-SemiBold.otf */,
+				8B78C9052A1E48B100B6C977 /* Inter-SemiBoldItalic.otf */,
+				8B78C8FB2A1E48B000B6C977 /* Inter-Thin.otf */,
+				8B78C8FF2A1E48B000B6C977 /* Inter-ThinItalic.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		8BEE19082A1CAA580006EEA0 /* StartScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,6 +467,7 @@
 				8BEE19272A1CC4570006EEA0 /* UITableView+Extensions.swift */,
 				8B78C8D62A1D445C00B6C977 /* UITextField+Extension.swift */,
 				8B78C8D92A1D4AFB00B6C977 /* UITapGestureRecognizer+Extensions.swift */,
+				8B78C91C2A1E4CAD00B6C977 /* UIFont+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -388,6 +503,7 @@
 		8BF087902A1A3ED9000F7846 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8B78C8F42A1E489900B6C977 /* Fonts */,
 				8BF087852A1A3E43000F7846 /* Assets.xcassets */,
 				8BF0878A2A1A3E43000F7846 /* Info.plist */,
 			);
@@ -399,6 +515,7 @@
 			children = (
 				8BEE19152A1CAC6E0006EEA0 /* Shared */,
 				8BF087932A1A3F02000F7846 /* LaunchScreen */,
+				8B78C8E52A1E2C1D00B6C977 /* TabBarScreen */,
 				8BEE19082A1CAA580006EEA0 /* StartScreen */,
 				8B78C88E2A1CE19A00B6C977 /* AuthRegScreen */,
 			);
@@ -603,8 +720,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B78C9192A1E492B00B6C977 /* Inter-Thin.otf in Resources */,
 				8BF087892A1A3E43000F7846 /* LaunchScreen.storyboard in Resources */,
+				8B78C9152A1E492000B6C977 /* Inter-MediumItalic.otf in Resources */,
+				8B78C9172A1E492600B6C977 /* Inter-SemiBold.otf in Resources */,
+				8B78C9122A1E491700B6C977 /* Inter-Light.otf in Resources */,
+				8B78C90C2A1E490500B6C977 /* Inter-BoldItalic.otf in Resources */,
+				8B78C90E2A1E490B00B6C977 /* Inter-ExtraBoldItalic.otf in Resources */,
+				8B78C91A2A1E492E00B6C977 /* Inter-ThinItalic.otf in Resources */,
+				8B78C90F2A1E490E00B6C977 /* Inter-ExtraLight.otf in Resources */,
+				8B78C90B2A1E490200B6C977 /* Inter-Bold.otf in Resources */,
+				8B78C9092A1E48F800B6C977 /* Inter-Black.otf in Resources */,
+				8B78C9142A1E491C00B6C977 /* Inter-Medium.otf in Resources */,
+				8B78C9162A1E492400B6C977 /* Inter-Regular.otf in Resources */,
+				8B78C9182A1E492900B6C977 /* Inter-SemiBoldItalic.otf in Resources */,
+				8B78C90A2A1E48FF00B6C977 /* Inter-BlackItalic.otf in Resources */,
 				8BF087862A1A3E43000F7846 /* Assets.xcassets in Resources */,
+				8B78C9132A1E491A00B6C977 /* Inter-LightItalic.otf in Resources */,
+				8B78C9102A1E491200B6C977 /* Inter-ExtraLightItalic.otf in Resources */,
+				8B78C9112A1E491500B6C977 /* Inter-Italic.otf in Resources */,
+				8B78C90D2A1E490800B6C977 /* Inter-ExtraBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,12 +752,14 @@
 			files = (
 				8BF087C62A1A6FC5000F7846 /* Consultation.swift in Sources */,
 				8B78C89F2A1CE8E700B6C977 /* TextFieldTVCell.swift in Sources */,
+				8B78C91D2A1E4CAD00B6C977 /* UIFont+Extensions.swift in Sources */,
 				8BEE192F2A1CD9200006EEA0 /* StockCVCell.swift in Sources */,
 				8B78C8962A1CE1C800B6C977 /* AuthRegModel.swift in Sources */,
 				8BF087BD2A1A6E17000F7846 /* UserLoginRequest.swift in Sources */,
 				8B78C8BD2A1D09DF00B6C977 /* FaceIdTVCell.swift in Sources */,
 				8BF087D22A1A7260000F7846 /* ConsultationSlot.swift in Sources */,
 				8B78C8CF2A1D276900B6C977 /* Constants.swift in Sources */,
+				8B78C8EB2A1E2C5100B6C977 /* TabBarController.swift in Sources */,
 				8B78C8B92A1D05C600B6C977 /* ButtonTVCell.swift in Sources */,
 				8B78C8E42A1E25DA00B6C977 /* AuthRegData.swift in Sources */,
 				8BF087D02A1A7240000F7846 /* SlotsResponse.swift in Sources */,
@@ -635,6 +772,7 @@
 				8BF087A82A1A692B000F7846 /* URLSessionNetworkManager.swift in Sources */,
 				8BEE19202A1CB2820006EEA0 /* UIView+Extensions.swift in Sources */,
 				8BEE19262A1CC4430006EEA0 /* UICollectionViewCell+Extensions.swift in Sources */,
+				8B78C8EA2A1E2C5100B6C977 /* TabBarPresenter.swift in Sources */,
 				8BF087A92A1A692B000F7846 /* NetworkManager.swift in Sources */,
 				8B78C8A72A1CEBF600B6C977 /* Configurable.swift in Sources */,
 				8BF087C42A1A6F48000F7846 /* ConsultationsResponse.swift in Sources */,
@@ -667,9 +805,11 @@
 				8B78C8B02A1CEE6000B6C977 /* AuthRegViewModel.swift in Sources */,
 				8BF087CC2A1A71CC000F7846 /* CancelSlotBookingByUserRequest.swift in Sources */,
 				8B78C8D52A1D348400B6C977 /* CheckBoxTVCell.swift in Sources */,
+				8B78C8ED2A1E2C5100B6C977 /* TabBarModel.swift in Sources */,
 				8BEE19182A1CAC820006EEA0 /* LogoView.swift in Sources */,
 				8B78C8D72A1D445C00B6C977 /* UITextField+Extension.swift in Sources */,
 				8B78C8952A1CE1C800B6C977 /* AuthRegAssembly.swift in Sources */,
+				8B78C8EC2A1E2C5100B6C977 /* TabBarAssembly.swift in Sources */,
 				8BF087AC2A1A692B000F7846 /* NetworkEnums.swift in Sources */,
 				8B78C8932A1CE1C800B6C977 /* AuthRegPresenter.swift in Sources */,
 				8BF087CE2A1A7202000F7846 /* SlotsRequest.swift in Sources */,

@@ -18,4 +18,16 @@ extension UIView {
         layer.bounds = bounds
         layer.position = center
     }
+    
+    func scaleAnimation(duration: Double) {
+        UIView.animate(withDuration: duration,
+                       animations: {
+            self.transform = CGAffineTransform(scaleX: 0.98, y: 0.98)
+        },
+                       completion: { _ in
+            UIView.animate(withDuration: duration) {
+                self.transform = CGAffineTransform.identity
+            }
+        })
+    }
 }

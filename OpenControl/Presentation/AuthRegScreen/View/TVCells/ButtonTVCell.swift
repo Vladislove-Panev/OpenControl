@@ -9,11 +9,12 @@ import UIKit
 
 final class ButtonTVCell: UITableViewCell {
     
-    private let button: UIButton = {
+    private lazy var button: UIButton = {
         let button = UIButton(type: .custom)
         button.backgroundColor = R.color.mainSecondaryColor()
         button.layer.cornerRadius = 8
         button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -37,6 +38,11 @@ final class ButtonTVCell: UITableViewCell {
             make.height.equalTo(44)
             make.bottom.equalToSuperview()
         }
+    }
+    
+    @objc private func buttonDidTap(_ sender: UIButton) {
+        sender.scaleAnimation(duration: 0.2)
+        // sender.flashBtn(duration: 0.2)
     }
 }
 

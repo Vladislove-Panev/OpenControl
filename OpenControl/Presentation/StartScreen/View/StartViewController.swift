@@ -95,6 +95,12 @@ extension StartViewController: UICollectionViewDataSource {
     }
 }
 
+extension StartViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.cellForItem(at: indexPath)?.scaleAnimation(duration: 0.2)
+    }
+}
+
 extension StartViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width - 32
