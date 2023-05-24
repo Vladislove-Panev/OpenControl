@@ -13,3 +13,10 @@ extension UICollectionViewCell {
         String(describing: self)
     }
 }
+
+extension UITableViewCell {
+    
+    static var reuseIdentifier: String {
+        String(describing: self)
+    }
+}
