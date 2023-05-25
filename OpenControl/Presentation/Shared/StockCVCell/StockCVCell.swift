@@ -37,6 +37,7 @@ final class StockCVCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 12, weight: .medium)
         label.textColor = R.color.subSubTitleColor()
         label.isHidden = true
+        label.numberOfLines = 0
         return label
     }()
     

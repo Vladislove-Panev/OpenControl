@@ -43,8 +43,7 @@ final class TabBarModel {
             
             switch self {
             case .main:
-                let vc = UIViewController()
-                vc.view.backgroundColor = .black
+                guard let vc = MainAssembly.assembly() else { return UIViewController() }
                 return UINavigationController(rootViewController: vc)
             case .appeal:
                 let vc = UIViewController()

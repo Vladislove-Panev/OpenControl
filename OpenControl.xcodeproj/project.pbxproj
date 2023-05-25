@@ -60,6 +60,12 @@
 		8B78C9192A1E492B00B6C977 /* Inter-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C8FB2A1E48B000B6C977 /* Inter-Thin.otf */; };
 		8B78C91A2A1E492E00B6C977 /* Inter-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B78C8FF2A1E48B000B6C977 /* Inter-ThinItalic.otf */; };
 		8B78C91D2A1E4CAD00B6C977 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C91C2A1E4CAD00B6C977 /* UIFont+Extensions.swift */; };
+		8B78C9272A1F489C00B6C977 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9232A1F489C00B6C977 /* MainPresenter.swift */; };
+		8B78C9282A1F489C00B6C977 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9242A1F489C00B6C977 /* MainViewController.swift */; };
+		8B78C9292A1F489C00B6C977 /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9252A1F489C00B6C977 /* MainAssembly.swift */; };
+		8B78C92A2A1F489C00B6C977 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9262A1F489C00B6C977 /* MainModel.swift */; };
+		8B78C9312A1F4EB200B6C977 /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9302A1F4EB200B6C977 /* MainHeaderView.swift */; };
+		8B78C9352A1F540A00B6C977 /* MainNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9342A1F540A00B6C977 /* MainNavBarView.swift */; };
 		8BEE19012A1CA99A0006EEA0 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 8BEE19002A1CA99A0006EEA0 /* RswiftLibrary */; };
 		8BEE19072A1CAA340006EEA0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8BEE19062A1CAA340006EEA0 /* SnapKit */; };
 		8BEE190D2A1CAB280006EEA0 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE19092A1CAB280006EEA0 /* StartPresenter.swift */; };
@@ -149,6 +155,12 @@
 		8B78C9072A1E48B100B6C977 /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.otf"; sourceTree = "<group>"; };
 		8B78C9082A1E48B100B6C977 /* Inter-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-MediumItalic.otf"; sourceTree = "<group>"; };
 		8B78C91C2A1E4CAD00B6C977 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		8B78C9232A1F489C00B6C977 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		8B78C9242A1F489C00B6C977 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8B78C9252A1F489C00B6C977 /* MainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
+		8B78C9262A1F489C00B6C977 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		8B78C9302A1F4EB200B6C977 /* MainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
+		8B78C9342A1F540A00B6C977 /* MainNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavBarView.swift; sourceTree = "<group>"; };
 		8BEE19092A1CAB280006EEA0 /* StartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
 		8BEE190A2A1CAB280006EEA0 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		8BEE190B2A1CAB280006EEA0 /* StartAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAssembly.swift; sourceTree = "<group>"; };
@@ -208,7 +220,7 @@
 			path = StockCVCell;
 			sourceTree = "<group>";
 		};
-		8B78C88E2A1CE19A00B6C977 /* AuthRegScreen */ = {
+		8B78C88E2A1CE19A00B6C977 /* AuthReg */ = {
 			isa = PBXGroup;
 			children = (
 				8B78C89A2A1CE1E100B6C977 /* Model */,
@@ -216,7 +228,7 @@
 				8B78C8982A1CE1D400B6C977 /* Presenter */,
 				8B78C8972A1CE1CC00B6C977 /* Assembly */,
 			);
-			path = AuthRegScreen;
+			path = AuthReg;
 			sourceTree = "<group>";
 		};
 		8B78C8972A1CE1CC00B6C977 /* Assembly */ = {
@@ -316,7 +328,7 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		8B78C8E52A1E2C1D00B6C977 /* TabBarScreen */ = {
+		8B78C8E52A1E2C1D00B6C977 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
 				8B78C8F22A1E2C9300B6C977 /* Model */,
@@ -324,7 +336,7 @@
 				8B78C8F02A1E2C8800B6C977 /* Presenter */,
 				8B78C8EF2A1E2C7F00B6C977 /* Assembly */,
 			);
-			path = TabBarScreen;
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		8B78C8EF2A1E2C7F00B6C977 /* Assembly */ = {
@@ -384,7 +396,80 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		8BEE19082A1CAA580006EEA0 /* StartScreen */ = {
+		8B78C91F2A1E4E8400B6C977 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C92E2A1F48CE00B6C977 /* Model */,
+				8B78C92D2A1F48C700B6C977 /* View */,
+				8B78C92C2A1F48C100B6C977 /* Presenter */,
+				8B78C92B2A1F48B600B6C977 /* Assembly */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		8B78C9202A1E4E9500B6C977 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C91F2A1E4E8400B6C977 /* Main */,
+				8B78C88E2A1CE19A00B6C977 /* AuthReg */,
+				8BEE19082A1CAA580006EEA0 /* Start */,
+				8B78C8E52A1E2C1D00B6C977 /* TabBar */,
+				8BF087932A1A3F02000F7846 /* Launch */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		8B78C92B2A1F48B600B6C977 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C9252A1F489C00B6C977 /* MainAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		8B78C92C2A1F48C100B6C977 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C9232A1F489C00B6C977 /* MainPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		8B78C92D2A1F48C700B6C977 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C9332A1F53FD00B6C977 /* NavBar */,
+				8B78C92F2A1F4EA500B6C977 /* Headers */,
+				8B78C9242A1F489C00B6C977 /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B78C92E2A1F48CE00B6C977 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C9262A1F489C00B6C977 /* MainModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B78C92F2A1F4EA500B6C977 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C9302A1F4EB200B6C977 /* MainHeaderView.swift */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		8B78C9332A1F53FD00B6C977 /* NavBar */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C9342A1F540A00B6C977 /* MainNavBarView.swift */,
+			);
+			path = NavBar;
+			sourceTree = "<group>";
+		};
+		8BEE19082A1CAA580006EEA0 /* Start */ = {
 			isa = PBXGroup;
 			children = (
 				8BEE19142A1CAB450006EEA0 /* Model */,
@@ -392,7 +477,7 @@
 				8BEE19122A1CAB390006EEA0 /* Presenter */,
 				8BEE19112A1CAB300006EEA0 /* Assembly */,
 			);
-			path = StartScreen;
+			path = Start;
 			sourceTree = "<group>";
 		};
 		8BEE19112A1CAB300006EEA0 /* Assembly */ = {
@@ -514,10 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				8BEE19152A1CAC6E0006EEA0 /* Shared */,
-				8BF087932A1A3F02000F7846 /* LaunchScreen */,
-				8B78C8E52A1E2C1D00B6C977 /* TabBarScreen */,
-				8BEE19082A1CAA580006EEA0 /* StartScreen */,
-				8B78C88E2A1CE19A00B6C977 /* AuthRegScreen */,
+				8B78C9202A1E4E9500B6C977 /* Screens */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -531,12 +613,12 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		8BF087932A1A3F02000F7846 /* LaunchScreen */ = {
+		8BF087932A1A3F02000F7846 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
 				8BF087872A1A3E43000F7846 /* LaunchScreen.storyboard */,
 			);
-			path = LaunchScreen;
+			path = Launch;
 			sourceTree = "<group>";
 		};
 		8BF087982A1A6880000F7846 /* Core */ = {
@@ -761,6 +843,7 @@
 				8B78C8CF2A1D276900B6C977 /* Constants.swift in Sources */,
 				8B78C8EB2A1E2C5100B6C977 /* TabBarController.swift in Sources */,
 				8B78C8B92A1D05C600B6C977 /* ButtonTVCell.swift in Sources */,
+				8B78C9352A1F540A00B6C977 /* MainNavBarView.swift in Sources */,
 				8B78C8E42A1E25DA00B6C977 /* AuthRegData.swift in Sources */,
 				8BF087D02A1A7240000F7846 /* SlotsResponse.swift in Sources */,
 				8B78C8942A1CE1C800B6C977 /* AuthRegViewController.swift in Sources */,
@@ -778,6 +861,7 @@
 				8BF087C42A1A6F48000F7846 /* ConsultationsResponse.swift in Sources */,
 				8B78C8E12A1E251100B6C977 /* ErrorPresentable.swift in Sources */,
 				8B78C8AE2A1CEE2700B6C977 /* Collection+Helpers.swift in Sources */,
+				8B78C92A2A1F489C00B6C977 /* MainModel.swift in Sources */,
 				8BEE190F2A1CAB280006EEA0 /* StartAssembly.swift in Sources */,
 				8B78C8C32A1D0F2000B6C977 /* IconCVCell.swift in Sources */,
 				8B78C8B22A1CEEE100B6C977 /* AuthRegDataConverter.swift in Sources */,
@@ -789,12 +873,15 @@
 				8B78C8DE2A1D606100B6C977 /* Validator.swift in Sources */,
 				8BEE19102A1CAB280006EEA0 /* StartModel.swift in Sources */,
 				8BF087B92A1A6C6B000F7846 /* AuthenticationUserResponse.swift in Sources */,
+				8B78C9312A1F4EB200B6C977 /* MainHeaderView.swift in Sources */,
 				8BF0877D2A1A3E42000F7846 /* AppDelegate.swift in Sources */,
 				8BF0877F2A1A3E42000F7846 /* SceneDelegate.swift in Sources */,
 				8B78C8CC2A1D235200B6C977 /* LogoTVCell.swift in Sources */,
 				8B78C8D22A1D32BD00B6C977 /* PassRulesTVCell.swift in Sources */,
 				8BF087CA2A1A71A5000F7846 /* CancelSlotBookingByAdminRequest.swift in Sources */,
 				8B78C8AA2A1CEC4000B6C977 /* TableCellConfigurator.swift in Sources */,
+				8B78C9282A1F489C00B6C977 /* MainViewController.swift in Sources */,
+				8B78C9272A1F489C00B6C977 /* MainPresenter.swift in Sources */,
 				8BEE191D2A1CAF230006EEA0 /* UILabel+Extensions.swift in Sources */,
 				8BF087B72A1A6AE6000F7846 /* RegisterUserRequest.swift in Sources */,
 				8B78C8BB2A1D06FB00B6C977 /* ForgotPasswordTVCell.swift in Sources */,
@@ -813,6 +900,7 @@
 				8BF087AC2A1A692B000F7846 /* NetworkEnums.swift in Sources */,
 				8B78C8932A1CE1C800B6C977 /* AuthRegPresenter.swift in Sources */,
 				8BF087CE2A1A7202000F7846 /* SlotsRequest.swift in Sources */,
+				8B78C9292A1F489C00B6C977 /* MainAssembly.swift in Sources */,
 				8B78C8DA2A1D4AFB00B6C977 /* UITapGestureRecognizer+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

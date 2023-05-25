@@ -14,4 +14,8 @@ extension UIFont {
     static func interRegular400(with size: CGFloat) -> UIFont? {
         UIFont(name: "Inter-Regular", size: size)
     }
+    
+    static func interMedium500(with size: CGFloat) -> UIFont? {
+        UIFont(name: "Inter-Medium", size: size)
+    }
 }
