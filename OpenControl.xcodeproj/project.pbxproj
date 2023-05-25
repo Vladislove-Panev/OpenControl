@@ -66,6 +66,15 @@
 		8B78C92A2A1F489C00B6C977 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9262A1F489C00B6C977 /* MainModel.swift */; };
 		8B78C9312A1F4EB200B6C977 /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9302A1F4EB200B6C977 /* MainHeaderView.swift */; };
 		8B78C9352A1F540A00B6C977 /* MainNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9342A1F540A00B6C977 /* MainNavBarView.swift */; };
+		8B78C93C2A1F67E100B6C977 /* ChatBotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9382A1F67E100B6C977 /* ChatBotPresenter.swift */; };
+		8B78C93D2A1F67E100B6C977 /* ChatBotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9392A1F67E100B6C977 /* ChatBotViewController.swift */; };
+		8B78C93E2A1F67E100B6C977 /* ChatBotAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C93A2A1F67E100B6C977 /* ChatBotAssembly.swift */; };
+		8B78C93F2A1F67E100B6C977 /* ChatBotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C93B2A1F67E100B6C977 /* ChatBotModel.swift */; };
+		8B78C94E2A1F6AE200B6C977 /* LeftMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9482A1F6AE200B6C977 /* LeftMessageCell.swift */; };
+		8B78C94F2A1F6AE200B6C977 /* RightMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C94A2A1F6AE200B6C977 /* RightMessageCell.swift */; };
+		8B78C9512A1F6AE200B6C977 /* MessageBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C94C2A1F6AE200B6C977 /* MessageBubbleCell.swift */; };
+		8B78C9532A1F7C8E00B6C977 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9522A1F7C8E00B6C977 /* UIViewController+Extension.swift */; };
+		8B78C9572A1F87D000B6C977 /* MessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9562A1F87D000B6C977 /* MessageInputView.swift */; };
 		8BEE19012A1CA99A0006EEA0 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 8BEE19002A1CA99A0006EEA0 /* RswiftLibrary */; };
 		8BEE19072A1CAA340006EEA0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8BEE19062A1CAA340006EEA0 /* SnapKit */; };
 		8BEE190D2A1CAB280006EEA0 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE19092A1CAB280006EEA0 /* StartPresenter.swift */; };
@@ -161,6 +170,15 @@
 		8B78C9262A1F489C00B6C977 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		8B78C9302A1F4EB200B6C977 /* MainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
 		8B78C9342A1F540A00B6C977 /* MainNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavBarView.swift; sourceTree = "<group>"; };
+		8B78C9382A1F67E100B6C977 /* ChatBotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotPresenter.swift; sourceTree = "<group>"; };
+		8B78C9392A1F67E100B6C977 /* ChatBotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotViewController.swift; sourceTree = "<group>"; };
+		8B78C93A2A1F67E100B6C977 /* ChatBotAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotAssembly.swift; sourceTree = "<group>"; };
+		8B78C93B2A1F67E100B6C977 /* ChatBotModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotModel.swift; sourceTree = "<group>"; };
+		8B78C9482A1F6AE200B6C977 /* LeftMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMessageCell.swift; sourceTree = "<group>"; };
+		8B78C94A2A1F6AE200B6C977 /* RightMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMessageCell.swift; sourceTree = "<group>"; };
+		8B78C94C2A1F6AE200B6C977 /* MessageBubbleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBubbleCell.swift; sourceTree = "<group>"; };
+		8B78C9522A1F7C8E00B6C977 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		8B78C9562A1F87D000B6C977 /* MessageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInputView.swift; sourceTree = "<group>"; };
 		8BEE19092A1CAB280006EEA0 /* StartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
 		8BEE190A2A1CAB280006EEA0 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		8BEE190B2A1CAB280006EEA0 /* StartAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAssembly.swift; sourceTree = "<group>"; };
@@ -410,6 +428,7 @@
 		8B78C9202A1E4E9500B6C977 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				8B78C9372A1F676E00B6C977 /* ChatBot */,
 				8B78C91F2A1E4E8400B6C977 /* Main */,
 				8B78C88E2A1CE19A00B6C977 /* AuthReg */,
 				8BEE19082A1CAA580006EEA0 /* Start */,
@@ -467,6 +486,85 @@
 				8B78C9342A1F540A00B6C977 /* MainNavBarView.swift */,
 			);
 			path = NavBar;
+			sourceTree = "<group>";
+		};
+		8B78C9372A1F676E00B6C977 /* ChatBot */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C9442A1F67F900B6C977 /* Model */,
+				8B78C9432A1F67F400B6C977 /* View */,
+				8B78C9422A1F67ED00B6C977 /* Presenter */,
+				8B78C9412A1F67E600B6C977 /* Assembly */,
+			);
+			path = ChatBot;
+			sourceTree = "<group>";
+		};
+		8B78C9412A1F67E600B6C977 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C93A2A1F67E100B6C977 /* ChatBotAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		8B78C9422A1F67ED00B6C977 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C9382A1F67E100B6C977 /* ChatBotPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		8B78C9432A1F67F400B6C977 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C9552A1F87BA00B6C977 /* MessageInput */,
+				8B78C9452A1F6AE200B6C977 /* TVCells */,
+				8B78C9392A1F67E100B6C977 /* ChatBotViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B78C9442A1F67F900B6C977 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C93B2A1F67E100B6C977 /* ChatBotModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B78C9452A1F6AE200B6C977 /* TVCells */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C9462A1F6AE200B6C977 /* LeftMessages */,
+				8B78C9492A1F6AE200B6C977 /* RightMessages */,
+				8B78C94C2A1F6AE200B6C977 /* MessageBubbleCell.swift */,
+			);
+			path = TVCells;
+			sourceTree = "<group>";
+		};
+		8B78C9462A1F6AE200B6C977 /* LeftMessages */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C9482A1F6AE200B6C977 /* LeftMessageCell.swift */,
+			);
+			path = LeftMessages;
+			sourceTree = "<group>";
+		};
+		8B78C9492A1F6AE200B6C977 /* RightMessages */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C94A2A1F6AE200B6C977 /* RightMessageCell.swift */,
+			);
+			path = RightMessages;
+			sourceTree = "<group>";
+		};
+		8B78C9552A1F87BA00B6C977 /* MessageInput */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C9562A1F87D000B6C977 /* MessageInputView.swift */,
+			);
+			path = MessageInput;
 			sourceTree = "<group>";
 		};
 		8BEE19082A1CAA580006EEA0 /* Start */ = {
@@ -553,6 +651,7 @@
 				8B78C8D62A1D445C00B6C977 /* UITextField+Extension.swift */,
 				8B78C8D92A1D4AFB00B6C977 /* UITapGestureRecognizer+Extensions.swift */,
 				8B78C91C2A1E4CAD00B6C977 /* UIFont+Extensions.swift */,
+				8B78C9522A1F7C8E00B6C977 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -844,6 +943,7 @@
 				8B78C8EB2A1E2C5100B6C977 /* TabBarController.swift in Sources */,
 				8B78C8B92A1D05C600B6C977 /* ButtonTVCell.swift in Sources */,
 				8B78C9352A1F540A00B6C977 /* MainNavBarView.swift in Sources */,
+				8B78C9572A1F87D000B6C977 /* MessageInputView.swift in Sources */,
 				8B78C8E42A1E25DA00B6C977 /* AuthRegData.swift in Sources */,
 				8BF087D02A1A7240000F7846 /* SlotsResponse.swift in Sources */,
 				8B78C8942A1CE1C800B6C977 /* AuthRegViewController.swift in Sources */,
@@ -857,11 +957,13 @@
 				8BEE19262A1CC4430006EEA0 /* UICollectionViewCell+Extensions.swift in Sources */,
 				8B78C8EA2A1E2C5100B6C977 /* TabBarPresenter.swift in Sources */,
 				8BF087A92A1A692B000F7846 /* NetworkManager.swift in Sources */,
+				8B78C93C2A1F67E100B6C977 /* ChatBotPresenter.swift in Sources */,
 				8B78C8A72A1CEBF600B6C977 /* Configurable.swift in Sources */,
 				8BF087C42A1A6F48000F7846 /* ConsultationsResponse.swift in Sources */,
 				8B78C8E12A1E251100B6C977 /* ErrorPresentable.swift in Sources */,
 				8B78C8AE2A1CEE2700B6C977 /* Collection+Helpers.swift in Sources */,
 				8B78C92A2A1F489C00B6C977 /* MainModel.swift in Sources */,
+				8B78C94F2A1F6AE200B6C977 /* RightMessageCell.swift in Sources */,
 				8BEE190F2A1CAB280006EEA0 /* StartAssembly.swift in Sources */,
 				8B78C8C32A1D0F2000B6C977 /* IconCVCell.swift in Sources */,
 				8B78C8B22A1CEEE100B6C977 /* AuthRegDataConverter.swift in Sources */,
@@ -873,6 +975,7 @@
 				8B78C8DE2A1D606100B6C977 /* Validator.swift in Sources */,
 				8BEE19102A1CAB280006EEA0 /* StartModel.swift in Sources */,
 				8BF087B92A1A6C6B000F7846 /* AuthenticationUserResponse.swift in Sources */,
+				8B78C93D2A1F67E100B6C977 /* ChatBotViewController.swift in Sources */,
 				8B78C9312A1F4EB200B6C977 /* MainHeaderView.swift in Sources */,
 				8BF0877D2A1A3E42000F7846 /* AppDelegate.swift in Sources */,
 				8BF0877F2A1A3E42000F7846 /* SceneDelegate.swift in Sources */,
@@ -893,12 +996,17 @@
 				8BF087CC2A1A71CC000F7846 /* CancelSlotBookingByUserRequest.swift in Sources */,
 				8B78C8D52A1D348400B6C977 /* CheckBoxTVCell.swift in Sources */,
 				8B78C8ED2A1E2C5100B6C977 /* TabBarModel.swift in Sources */,
+				8B78C94E2A1F6AE200B6C977 /* LeftMessageCell.swift in Sources */,
 				8BEE19182A1CAC820006EEA0 /* LogoView.swift in Sources */,
+				8B78C9532A1F7C8E00B6C977 /* UIViewController+Extension.swift in Sources */,
 				8B78C8D72A1D445C00B6C977 /* UITextField+Extension.swift in Sources */,
+				8B78C93F2A1F67E100B6C977 /* ChatBotModel.swift in Sources */,
 				8B78C8952A1CE1C800B6C977 /* AuthRegAssembly.swift in Sources */,
 				8B78C8EC2A1E2C5100B6C977 /* TabBarAssembly.swift in Sources */,
 				8BF087AC2A1A692B000F7846 /* NetworkEnums.swift in Sources */,
+				8B78C9512A1F6AE200B6C977 /* MessageBubbleCell.swift in Sources */,
 				8B78C8932A1CE1C800B6C977 /* AuthRegPresenter.swift in Sources */,
+				8B78C93E2A1F67E100B6C977 /* ChatBotAssembly.swift in Sources */,
 				8BF087CE2A1A7202000F7846 /* SlotsRequest.swift in Sources */,
 				8B78C9292A1F489C00B6C977 /* MainAssembly.swift in Sources */,
 				8B78C8DA2A1D4AFB00B6C977 /* UITapGestureRecognizer+Extensions.swift in Sources */,
@@ -1047,7 +1155,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TH3HNHXAQ2;
+				DEVELOPMENT_TEAM = QLAVMC6G2W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OpenControl/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Открытый контроль";
@@ -1061,7 +1169,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.vladislav.OpenControl;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.hoff.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1076,7 +1184,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TH3HNHXAQ2;
+				DEVELOPMENT_TEAM = QLAVMC6G2W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OpenControl/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Открытый контроль";
@@ -1090,7 +1198,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.vladislav.OpenControl;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.hoff.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

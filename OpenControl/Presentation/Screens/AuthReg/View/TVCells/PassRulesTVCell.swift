@@ -12,6 +12,7 @@ final class PassRulesTVCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13)
+        label.textColor = .black
         label.setCharacterSpacing(-0.41)
         label.text = "  Пароль должен содержать:"
         return label
@@ -20,6 +21,7 @@ final class PassRulesTVCell: UITableViewCell {
     private let ruleOneLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13, weight: .light)
+        label.textColor = .black
         label.setCharacterSpacing(-0.41)
         label.text = "    • Не менее 8 символов"
         return label
@@ -28,6 +30,7 @@ final class PassRulesTVCell: UITableViewCell {
     private let ruleTwoLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13, weight: .light)
+        label.textColor = .black
         label.setCharacterSpacing(-0.41)
         label.text = "    • Прописные буквы"
         return label
@@ -36,6 +39,7 @@ final class PassRulesTVCell: UITableViewCell {
     private let ruleThreeLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13, weight: .light)
+        label.textColor = .black
         label.setCharacterSpacing(-0.41)
         label.text = "    • Цифры"
         return label
@@ -44,6 +48,7 @@ final class PassRulesTVCell: UITableViewCell {
     private let ruleFourLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13, weight: .light)
+        label.textColor = .black
         label.setCharacterSpacing(-0.41)
         label.text = "    • Строчные буквы"
         return label

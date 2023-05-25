@@ -12,11 +12,20 @@ protocol SegmentedControllTVCellDelegate: AnyObject {
 }
 
 final class SegmentedControllTVCell: UITableViewCell {
- 
+    
     private lazy var segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["Регистрация", "Вход"])
         segmentedControl.selectedSegmentIndex = 1
         segmentedControl.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
+        segmentedControl.backgroundColor = R.color.segmentedControlBackgroundColor()
+        segmentedControl.selectedSegmentTintColor = .white
+        
+        let titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.black,
+            NSAttributedString.Key.font: UIFont.interRegular400(with: 13) ?? .systemFont(ofSize: 13)
+        ]
+        segmentedControl.setTitleTextAttributes(titleTextAttributes, for:.normal)
+        segmentedControl.setTitleTextAttributes(titleTextAttributes, for:.selected)
         return segmentedControl
     }()
     

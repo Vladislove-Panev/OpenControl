@@ -20,6 +20,7 @@ final class StockCVCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 17, weight: .bold)
         label.setCharacterSpacing(-0.41)
+        label.textColor = .black
         label.isHidden = true
         return label
     }()
@@ -28,6 +29,7 @@ final class StockCVCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16)
         label.setCharacterSpacing(-0.08)
+        label.textColor = .black
         label.isHidden = true
         return label
     }()
@@ -37,6 +39,7 @@ final class StockCVCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 12, weight: .medium)
         label.textColor = R.color.subSubTitleColor()
         label.isHidden = true
+        label.textColor = .black
         label.numberOfLines = 0
         return label
     }()

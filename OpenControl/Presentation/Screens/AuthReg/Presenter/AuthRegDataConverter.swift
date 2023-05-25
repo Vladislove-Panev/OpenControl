@@ -95,12 +95,12 @@ final class AuthRegDataConverter {
         return Section(rows: rows)
     }
     
-    private func assembleButton(with title: String) -> Section {
+    private func assembleButton(with title: String, delegate: AnyObject) -> Section {
         
         var rows: [Row] = []
         
         typealias ButtonModel = ButtonTVCell.Model
-        let buttonModel = ButtonModel(title: title)
+        let buttonModel = ButtonModel(title: title, delegate: delegate as? ButtonTVCellDelegate)
         let buttonConfigurator = ButtonConfigurator(item: buttonModel)
         let cell = Row(configurator: buttonConfigurator)
         rows.append(cell)
@@ -205,12 +205,12 @@ extension AuthRegDataConverter: AuthRegDataConverterInput {
             let checkBoxSection = assembleCheckBox()
             sections.append(checkBoxSection)
             
-            let buttonSection = assembleButton(with: "Зарегистрироваться")
+            let buttonSection = assembleButton(with: "Зарегистрироваться", delegate: delegate)
             sections.append(buttonSection)
             
         } else {
             
-            let buttonSection = assembleButton(with: "Войти")
+            let buttonSection = assembleButton(with: "Войти", delegate: delegate)
             sections.append(buttonSection)
             
             let forgotSection = assembleForgotPassword()

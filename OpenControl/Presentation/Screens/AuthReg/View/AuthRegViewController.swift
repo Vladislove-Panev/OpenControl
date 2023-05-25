@@ -13,6 +13,7 @@ protocol AuthRegViewInput: AnyObject {
     var tableViewManager: AuthRegTableViewManager? { get set }
     
     func updateTableView(with viewModel: AuthRegViewModel)
+    func showTabBar()
 }
 
 protocol AuthRegViewOutput: AnyObject {
@@ -47,6 +48,11 @@ final class AuthRegViewController: UIViewController {
 }
 
 extension AuthRegViewController: AuthRegViewInput {
+    func showTabBar() {
+        let tabBarController = TabBarAssembly.assembly()
+        view.window?.rootViewController = tabBarController
+    }
+    
     func updateTableView(with viewModel: AuthRegViewModel) {
         tableViewManager?.update(with: viewModel)
     }

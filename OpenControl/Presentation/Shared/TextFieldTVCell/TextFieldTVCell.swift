@@ -24,6 +24,7 @@ final class TextFieldTVCell: UITableViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16)
         label.setCharacterSpacing(-0.41)
+        label.textColor = .black
         return label
     }()
     
@@ -62,6 +63,7 @@ final class TextFieldTVCell: UITableViewCell {
         textField.layer.cornerRadius = 8
         textField.backgroundColor = .white
         textField.font = .systemFont(ofSize: 17)
+        textField.textColor = .black
         textField.attributedPlaceholder = NSAttributedString(
             string: placeholder,
             attributes: [NSAttributedString.Key.foregroundColor: R.color.textFieldPlaceholderColor() ?? .black]

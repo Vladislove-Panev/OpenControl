@@ -72,3 +72,9 @@ extension AuthRegPresenter: TextFieldTVCellDelegate {
         }
     }
 }
+
+extension AuthRegPresenter: ButtonTVCellDelegate {
+    func buttonDidTap() {
+        view?.showTabBar()
+    }
+}

@@ -13,6 +13,7 @@ final class LogoView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13)
+        label.textColor = .black
         label.text = "Цифровая платформа"
         label.setCharacterSpacing(-0.41)
         return label
@@ -21,6 +22,7 @@ final class LogoView: UIView {
     private let subtitleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 20)
+        label.textColor = .black
         label.text = "Открытый Контроль"
         label.setCharacterSpacing(-0.41)
         return label

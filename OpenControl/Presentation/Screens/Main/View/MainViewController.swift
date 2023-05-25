@@ -48,8 +48,13 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = R.color.mainBackgroundColor()
-        navigationController?.isNavigationBarHidden = true
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         setupLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
     }
     
     private func setupLayout() {
@@ -86,7 +91,7 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StockCVCell.reuseIdentifier, for: indexPath) as? StockCVCell,
             let presenter = presenter else { return UICollectionViewCell() }
-        cell.configure(with: presenter.model(for: indexPath))
+        cell.configure(with: presenter.model(for: indexPath).stockModel)
         return cell
     }
     
@@ -106,7 +111,21 @@ extension MainViewController: UICollectionViewDataSource {
 
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.cellForItem(at: indexPath)?.scaleAnimation(duration: 0.2)
+        collectionView.cellForItem(at: indexPath)?.scaleAnimation(duration: 0.2) {
+            guard let model = self.presenter?.model(for: indexPath) else { return }
+            switch model.navigateTo {
+            case .consultation:
+                break
+            case .chatBot:
+                if let vc = ChatBotAssembly.assembly() {
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            case .answers:
+                break
+            case .experts:
+                break
+            }
+        }
     }
 }
 

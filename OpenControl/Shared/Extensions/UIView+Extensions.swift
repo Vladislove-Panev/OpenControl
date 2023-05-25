@@ -19,7 +19,7 @@ extension UIView {
         layer.position = center
     }
     
-    func scaleAnimation(duration: Double) {
+    func scaleAnimation(duration: Double, completion: (() -> Void)? = nil) {
         UIView.animate(withDuration: duration,
                        animations: {
             self.transform = CGAffineTransform(scaleX: 0.98, y: 0.98)
@@ -28,6 +28,7 @@ extension UIView {
             UIView.animate(withDuration: duration) {
                 self.transform = CGAffineTransform.identity
             }
+            completion?()
         })
     }
 }

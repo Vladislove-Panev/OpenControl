@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol ButtonTVCellDelegate: AnyObject {
+    func buttonDidTap()
+}
+
 final class ButtonTVCell: UITableViewCell {
+    
+    private weak var delegate: ButtonTVCellDelegate?
     
     private lazy var button: UIButton = {
         let button = UIButton(type: .custom)
@@ -41,8 +47,9 @@ final class ButtonTVCell: UITableViewCell {
     }
     
     @objc private func buttonDidTap(_ sender: UIButton) {
-        sender.scaleAnimation(duration: 0.2)
-        // sender.flashBtn(duration: 0.2)
+        sender.scaleAnimation(duration: 0.2) {
+            self.delegate?.buttonDidTap()
+        }
     }
 }
 
@@ -50,9 +57,11 @@ extension ButtonTVCell: Configurable {
     
     struct Model {
         let title: String
+        weak var delegate: ButtonTVCellDelegate?
     }
     
     func configure(with model: Model) {
         button.setTitle(model.title, for: .normal)
+        delegate = model.delegate
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 protocol MainPresenterInput {
     init(view: MainViewInput, model: MainModelInput)
     func numberOfRowsInSection(in section: Int) -> Int
-    func model(for indexPath: IndexPath) -> StockModelProtocol
+    func model(for indexPath: IndexPath) -> MainModel.ServiceModel
 }
 
 final class MainPresenter: MainPresenterInput {
@@ -28,7 +28,7 @@ final class MainPresenter: MainPresenterInput {
         model.fetchStockData().count
     }
     
-    func model(for indexPath: IndexPath) -> StockModelProtocol {
+    func model(for indexPath: IndexPath) -> MainModel.ServiceModel {
         model.fetchStockData()[indexPath.item]
     }
     

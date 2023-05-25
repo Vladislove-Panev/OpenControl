@@ -90,14 +90,23 @@ extension StartViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StockCVCell.reuseIdentifier, for: indexPath) as? StockCVCell,
             let presenter = presenter else { return UICollectionViewCell() }
-        cell.configure(with: presenter.model(for: indexPath))
+        cell.configure(with: presenter.model(for: indexPath).stockModel)
         return cell
     }
 }
 
 extension StartViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.cellForItem(at: indexPath)?.scaleAnimation(duration: 0.2)
+        guard let model = presenter?.model(for: indexPath) else { return }
+        collectionView.cellForItem(at: indexPath)?.scaleAnimation(duration: 0.2) {
+            switch model.navigateTo {
+            case .kno:
+                break
+            case .entity:
+                let vc = AuthRegAssembly.assembly()
+                self.view.window?.rootViewController = vc
+            }
+        }
     }
 }
 

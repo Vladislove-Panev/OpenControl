@@ -14,6 +14,7 @@ final class MainHeaderView: UICollectionReusableView {
         label.font = .interMedium500(with: 17)
         label.setCharacterSpacing(-0.41)
         label.text = "Выберите услугу"
+        label.textColor = .black
         return label
     }()
     

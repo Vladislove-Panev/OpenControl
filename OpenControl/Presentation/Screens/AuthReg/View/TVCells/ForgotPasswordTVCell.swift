@@ -12,6 +12,7 @@ final class ForgotPasswordTVCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15)
+        label.textColor = .black
         label.setCharacterSpacing(-0.41)
         label.text = "  Забыли пароль?"
         return label

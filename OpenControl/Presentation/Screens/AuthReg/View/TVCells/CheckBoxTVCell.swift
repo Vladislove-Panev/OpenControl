@@ -19,6 +19,7 @@ final class CheckBoxTVCell: UITableViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13)
+        label.textColor = .black
         label.setCharacterSpacing(-0.41)
         label.numberOfLines = 0
         label.isUserInteractionEnabled = true

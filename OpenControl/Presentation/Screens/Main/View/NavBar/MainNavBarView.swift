@@ -12,6 +12,7 @@ final class MainNavBarView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .interRegular400(with: 16)
+        label.textColor = .black
         label.setCharacterSpacing(-0.41)
         label.text = "Алексей Алексеевич"
         return label
