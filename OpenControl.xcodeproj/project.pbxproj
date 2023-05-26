@@ -23,7 +23,6 @@
 		8B78C8B42A1CFBE900B6C977 /* OCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C8B32A1CFBE900B6C977 /* OCTextField.swift */; };
 		8B78C8B92A1D05C600B6C977 /* ButtonTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C8B82A1D05C600B6C977 /* ButtonTVCell.swift */; };
 		8B78C8BB2A1D06FB00B6C977 /* ForgotPasswordTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C8BA2A1D06FB00B6C977 /* ForgotPasswordTVCell.swift */; };
-		8B78C8BD2A1D09DF00B6C977 /* FaceIdTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C8BC2A1D09DF00B6C977 /* FaceIdTVCell.swift */; };
 		8B78C8BF2A1D0C1500B6C977 /* SocialsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C8BE2A1D0C1500B6C977 /* SocialsTVCell.swift */; };
 		8B78C8C32A1D0F2000B6C977 /* IconCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C8C22A1D0F2000B6C977 /* IconCVCell.swift */; };
 		8B78C8C62A1D1D8700B6C977 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8B78C8C52A1D1D8700B6C977 /* IQKeyboardManagerSwift */; };
@@ -128,7 +127,6 @@
 		8B78C8B32A1CFBE900B6C977 /* OCTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCTextField.swift; sourceTree = "<group>"; };
 		8B78C8B82A1D05C600B6C977 /* ButtonTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTVCell.swift; sourceTree = "<group>"; };
 		8B78C8BA2A1D06FB00B6C977 /* ForgotPasswordTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordTVCell.swift; sourceTree = "<group>"; };
-		8B78C8BC2A1D09DF00B6C977 /* FaceIdTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIdTVCell.swift; sourceTree = "<group>"; };
 		8B78C8BE2A1D0C1500B6C977 /* SocialsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialsTVCell.swift; sourceTree = "<group>"; };
 		8B78C8C22A1D0F2000B6C977 /* IconCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCVCell.swift; sourceTree = "<group>"; };
 		8B78C8C82A1D22C200B6C977 /* SegmentedControllTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControllTVCell.swift; sourceTree = "<group>"; };
@@ -311,7 +309,6 @@
 			children = (
 				8B78C8B82A1D05C600B6C977 /* ButtonTVCell.swift */,
 				8B78C8BA2A1D06FB00B6C977 /* ForgotPasswordTVCell.swift */,
-				8B78C8BC2A1D09DF00B6C977 /* FaceIdTVCell.swift */,
 				8B78C8BE2A1D0C1500B6C977 /* SocialsTVCell.swift */,
 				8B78C8C82A1D22C200B6C977 /* SegmentedControllTVCell.swift */,
 				8B78C8CB2A1D235200B6C977 /* LogoTVCell.swift */,
@@ -937,7 +934,6 @@
 				8BEE192F2A1CD9200006EEA0 /* StockCVCell.swift in Sources */,
 				8B78C8962A1CE1C800B6C977 /* AuthRegModel.swift in Sources */,
 				8BF087BD2A1A6E17000F7846 /* UserLoginRequest.swift in Sources */,
-				8B78C8BD2A1D09DF00B6C977 /* FaceIdTVCell.swift in Sources */,
 				8BF087D22A1A7260000F7846 /* ConsultationSlot.swift in Sources */,
 				8B78C8CF2A1D276900B6C977 /* Constants.swift in Sources */,
 				8B78C8EB2A1E2C5100B6C977 /* TabBarController.swift in Sources */,

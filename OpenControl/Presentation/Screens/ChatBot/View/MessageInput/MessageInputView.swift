@@ -14,10 +14,7 @@ final class MessageInputView: UIView {
         textView.isScrollEnabled = false
         textView.backgroundColor = .white
         textView.font = .interRegular400(with: 17)
-        
-        textView.text = "Текст"
-        textView.textColor = R.color.textFieldPlaceholderColor()
-        textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+        textView.textColor = .black
         
         textView.returnKeyType = .default
         textView.textContainerInset = .init(top: 11, left: 14, bottom: 11, right: 30)
@@ -42,6 +39,14 @@ final class MessageInputView: UIView {
         return button
     }()
     
+    private let placeholderLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = R.color.textFieldPlaceholderColor()
+        label.text = "Текст"
+        label.font = .interRegular400(with: 17)
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
@@ -61,6 +66,7 @@ final class MessageInputView: UIView {
         addSubview(messageTextView)
         addSubview(micButton)
         addSubview(sendButton)
+        addSubview(placeholderLabel)
         
         messageTextView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -80,45 +86,27 @@ final class MessageInputView: UIView {
             make.trailing.equalTo(messageTextView).inset(8)
             make.centerY.equalTo(messageTextView)
         }
+        
+        placeholderLabel.snp.makeConstraints { make in
+            make.leading.equalTo(messageTextView).offset(19)
+            make.centerY.equalTo(messageTextView)
+        }
     }
 }
 
 extension MessageInputView: UITextViewDelegate {
 
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-
-        let currentText: String = textView.text
-        let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
-
-        if updatedText.isEmpty {
-
-            textView.text = "Текст"
-            textView.textColor = R.color.textFieldPlaceholderColor()
-
-            textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
-            
-            micButton.isHidden =  false
+    func textViewDidChange(_ textView: UITextView) {
+        guard let text = textView.text,
+              !text.isEmpty else {
+            micButton.isHidden = false
             sendButton.isHidden = true
-        } else if textView.textColor == R.color.textFieldPlaceholderColor() && !text.isEmpty {
-            
-            textView.textColor = .black
-            textView.text = text
-            
-            micButton.isHidden =  true
-            sendButton.isHidden = false
-            
-        } else {
-            return true
+            placeholderLabel.isHidden = false
+            return
         }
-
-        return false
-    }
-    
-    func textViewDidChangeSelection(_ textView: UITextView) {
-        if window != nil {
-            if textView.textColor == R.color.textFieldPlaceholderColor() {
-                textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
-            }
-        }
+        
+        micButton.isHidden = true
+        sendButton.isHidden = false
+        placeholderLabel.isHidden = true
     }
 }

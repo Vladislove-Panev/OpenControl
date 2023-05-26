@@ -19,6 +19,15 @@ struct SocialMediaModel {
 
 final class SocialsTVCell: UITableViewCell {
  
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 15)
+        label.textColor = .black
+        label.setCharacterSpacing(-0.41)
+        label.text = "Войти через"
+        return label
+    }()
+    
     private lazy var flowLayout: UICollectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.itemSize = CGSize(width: 40, height: 40)
@@ -51,10 +60,18 @@ final class SocialsTVCell: UITableViewCell {
     private func setupLayout() {
         
         contentView.backgroundColor = R.color.mainBackgroundColor()
+        
+        contentView.addSubview(titleLabel)
         contentView.addSubview(collectionView)
+        
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(112)
+            make.centerX.equalToSuperview()
+        }
+        
         collectionView.snp.makeConstraints { make in
             make.height.equalTo(50)
-            make.top.equalToSuperview().offset(22)
+            make.top.equalTo(titleLabel.snp.bottom).offset(19)
             make.leading.equalToSuperview().offset(16)
             make.bottom.equalToSuperview()
             make.width.equalTo(260)

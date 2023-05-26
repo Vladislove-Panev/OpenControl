@@ -45,7 +45,6 @@ extension AuthRegTableViewManager: AuthRegTableViewManagerInput {
         tableView.register(TextFieldTVCell.self)
         tableView.register(ButtonTVCell.self)
         tableView.register(ForgotPasswordTVCell.self)
-        tableView.register(FaceIdTVCell.self)
         tableView.register(SocialsTVCell.self)
         tableView.register(PassRulesTVCell.self)
         tableView.register(CheckBoxTVCell.self)

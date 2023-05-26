@@ -36,10 +36,6 @@ final class AuthRegDataConverter {
         ForgotPasswordTVCell,
         ForgotPasswordTVCell.Model
     >
-    private typealias FaceIdConfigurator = TableCellConfigurator<
-        FaceIdTVCell,
-        FaceIdTVCell.Model
-    >
     private typealias SocialsConfigurator = TableCellConfigurator<
         SocialsTVCell,
         SocialsTVCell.Model
@@ -116,19 +112,6 @@ final class AuthRegDataConverter {
         let forgotPasswordModel = ForgotPasswordModel()
         let forgotPasswordConfigurator = ForgotPasswordConfigurator(item: forgotPasswordModel)
         let cell = Row(configurator: forgotPasswordConfigurator)
-        rows.append(cell)
-        
-        return Section(rows: rows)
-    }
-    
-    private func assembleFaceId() -> Section {
-        
-        var rows: [Row] = []
-        
-        typealias FaceIdModel = FaceIdTVCell.Model
-        let faceIdModel = FaceIdModel()
-        let faceIdConfigurator = FaceIdConfigurator(item: faceIdModel)
-        let cell = Row(configurator: faceIdConfigurator)
         rows.append(cell)
         
         return Section(rows: rows)
@@ -215,9 +198,6 @@ extension AuthRegDataConverter: AuthRegDataConverterInput {
             
             let forgotSection = assembleForgotPassword()
             sections.append(forgotSection)
-            
-            let faceIdSection = assembleFaceId()
-            sections.append(faceIdSection)
             
             let socialsSection = assembleSocials()
             sections.append(socialsSection)

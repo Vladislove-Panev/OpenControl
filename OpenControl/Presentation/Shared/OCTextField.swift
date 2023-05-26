@@ -12,12 +12,10 @@ class OCTextField: UITextField {
     var insetX: CGFloat = 10
     var insetY: CGFloat = 10
 
-    // placeholder position
     override func textRect(forBounds: CGRect) -> CGRect {
         return forBounds.insetBy(dx: self.insetX , dy: self.insetY)
     }
 
-    // text position
     override func editingRect(forBounds: CGRect) -> CGRect {
         return forBounds.insetBy(dx: self.insetX , dy: self.insetY)
     }
