@@ -10,7 +10,7 @@ import Foundation
 struct AuthRegData {
     
     enum PlaceholderType: Int {
-        case name = 10, surname, middlename, phone, mail, pass, repeatPass, mailOrPhone, none
+        case name = 10, surname, middlename, phone, mail, pass, repeatPass, mailOrPhone, authPass, none
     }
     
     struct Placeholder {

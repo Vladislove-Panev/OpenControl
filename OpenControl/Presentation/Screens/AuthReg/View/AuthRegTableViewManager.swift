@@ -14,6 +14,7 @@ protocol AuthRegTableViewManagerDelegate: AnyObject {
 protocol AuthRegTableViewManagerInput {
     func setup(tableView: UITableView)
     func update(with viewModel: AuthRegViewModel)
+    func updateButtonCell(with viewModel: AuthRegViewModel)
 }
 
 
@@ -58,6 +59,19 @@ extension AuthRegTableViewManager: AuthRegTableViewManagerInput {
     
     func update(with viewModel: AuthRegViewModel) {
         updateTableView(with: viewModel)
+    }
+    
+    func updateButtonCell(with viewModel: AuthRegViewModel) {
+        var index: IndexPath = .init(row: 0, section: 0)
+        for (i, section) in viewModel.sections.enumerated() {
+            for (j, row) in section.rows.enumerated() {
+                if row.reuseId == String(describing: ButtonTVCell.self) {
+                    index = IndexPath(row: j, section: i)
+                }
+            }
+        }
+        self.viewModel = viewModel
+        tableView?.reloadRows(at: [index], with: .fade)
     }
 }
 

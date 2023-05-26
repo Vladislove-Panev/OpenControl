@@ -13,6 +13,7 @@ protocol AuthRegViewInput: AnyObject {
     var tableViewManager: AuthRegTableViewManager? { get set }
     
     func updateTableView(with viewModel: AuthRegViewModel)
+    func updateButtonCell(with viewModel: AuthRegViewModel)
     func showTabBar()
 }
 
@@ -55,5 +56,9 @@ extension AuthRegViewController: AuthRegViewInput {
     
     func updateTableView(with viewModel: AuthRegViewModel) {
         tableViewManager?.update(with: viewModel)
+    }
+    
+    func updateButtonCell(with viewModel: AuthRegViewModel) {
+        tableViewManager?.updateButtonCell(with: viewModel)
     }
 }

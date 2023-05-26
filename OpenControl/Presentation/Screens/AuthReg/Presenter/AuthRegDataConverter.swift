@@ -8,7 +8,7 @@
 import Foundation
 
 protocol AuthRegDataConverterInput {
-    func convert(with model: [AuthRegData], segmentedValue: Int, delegate: AnyObject) -> AuthRegViewModel
+    func convert(with model: [AuthRegData], segmentedValue: Int, isButtonValid: Bool, delegate: AnyObject) -> AuthRegViewModel
 }
 
 final class AuthRegDataConverter {
@@ -91,12 +91,12 @@ final class AuthRegDataConverter {
         return Section(rows: rows)
     }
     
-    private func assembleButton(with title: String, delegate: AnyObject) -> Section {
+    private func assembleButton(with title: String, isButtonValid: Bool, delegate: AnyObject) -> Section {
         
         var rows: [Row] = []
         
         typealias ButtonModel = ButtonTVCell.Model
-        let buttonModel = ButtonModel(title: title, delegate: delegate as? ButtonTVCellDelegate)
+        let buttonModel = ButtonModel(title: title, isValid: isButtonValid, delegate: delegate as? ButtonTVCellDelegate)
         let buttonConfigurator = ButtonConfigurator(item: buttonModel)
         let cell = Row(configurator: buttonConfigurator)
         rows.append(cell)
@@ -149,12 +149,12 @@ final class AuthRegDataConverter {
         return Section(rows: rows)
     }
     
-    private func assembleCheckBox() -> Section {
+    private func assembleCheckBox(delegate: AnyObject) -> Section {
         
         var rows: [Row] = []
         
         typealias CheckBoxModel = CheckBoxTVCell.Model
-        let checkBoxModel = CheckBoxModel()
+        let checkBoxModel = CheckBoxModel(delegate: delegate as? CheckBoxTVCellDelegate)
         let checkBoxConfigurator = CheckBoxConfigurator(item: checkBoxModel)
         let cell = Row(configurator: checkBoxConfigurator)
         rows.append(cell)
@@ -165,7 +165,7 @@ final class AuthRegDataConverter {
 
 extension AuthRegDataConverter: AuthRegDataConverterInput {
 
-    func convert(with model: [AuthRegData], segmentedValue: Int, delegate: AnyObject) -> AuthRegViewModel {
+    func convert(with model: [AuthRegData], segmentedValue: Int, isButtonValid: Bool, delegate: AnyObject) -> AuthRegViewModel {
         
         var sections: [Section] = []
         
@@ -185,15 +185,15 @@ extension AuthRegDataConverter: AuthRegDataConverterInput {
             let passRulesSection = assemblePassRules()
             sections.append(passRulesSection)
             
-            let checkBoxSection = assembleCheckBox()
+            let checkBoxSection = assembleCheckBox(delegate: delegate)
             sections.append(checkBoxSection)
             
-            let buttonSection = assembleButton(with: "Зарегистрироваться", delegate: delegate)
+            let buttonSection = assembleButton(with: "Зарегистрироваться", isButtonValid: isButtonValid, delegate: delegate)
             sections.append(buttonSection)
             
         } else {
             
-            let buttonSection = assembleButton(with: "Войти", delegate: delegate)
+            let buttonSection = assembleButton(with: "Войти", isButtonValid: isButtonValid, delegate: delegate)
             sections.append(buttonSection)
             
             let forgotSection = assembleForgotPassword()

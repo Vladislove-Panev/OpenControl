@@ -7,12 +7,22 @@
 
 import UIKit
 
+protocol CheckBoxTVCellDelegate: AnyObject {
+    func checkBoxDidChange(_ value: Bool)
+}
+
 final class CheckBoxTVCell: UITableViewCell {
  
-    private let checkBoxButton: UIButton = {
+    private weak var delegate: CheckBoxTVCellDelegate?
+    
+    private var isChecked: Bool = false
+    
+    private lazy var checkBoxButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("", for: .normal)
         button.setImage(R.image.checkBoxEmptyIcon(), for: .normal)
+        button.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
+        button.layer.cornerRadius = 3
         return button
     }()
     
@@ -61,9 +71,12 @@ final class CheckBoxTVCell: UITableViewCell {
             make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalToSuperview()
         }
+        checkBoxButton.snp.makeConstraints { make in
+            make.size.equalTo(26)
+        }
     }
     
-    @objc func handleTapOnLabel(_ recognizer: UITapGestureRecognizer) {
+    @objc private func handleTapOnLabel(_ recognizer: UITapGestureRecognizer) {
         
         guard let text = titleLabel.attributedText?.string else {
             return
@@ -74,15 +87,22 @@ final class CheckBoxTVCell: UITableViewCell {
             print("TERMS!")
         }
     }
+    
+    @objc private func buttonDidTap(_ sender: UIButton) {
+        isChecked.toggle()
+        sender.setImage(isChecked ? R.image.checkBoxCheckMarkIcon() : R.image.checkBoxEmptyIcon(), for: .normal)
+        sender.backgroundColor = isChecked ? R.color.mainSecondaryColor() : .clear
+        delegate?.checkBoxDidChange(isChecked)
+    }
 }
 
 extension CheckBoxTVCell: Configurable {
     
     struct Model {
-        
+        weak var delegate: CheckBoxTVCellDelegate?
     }
     
     func configure(with model: Model) {
-        
+        delegate = model.delegate
     }
 }

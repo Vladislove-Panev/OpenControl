@@ -17,6 +17,8 @@ final class AuthRegPresenter: AuthRegPresenterInput {
     private var model: AuthRegModelInput
     private let dataConverter: AuthRegDataConverter
     private var currentSegmentedValue = 1
+    private var isButtonValid = false
+    private var isCheckBoxChecked = false
     
     init(view: AuthRegViewInput, model: AuthRegModelInput, dataConverter: AuthRegDataConverter) {
         self.view = view
@@ -25,8 +27,9 @@ final class AuthRegPresenter: AuthRegPresenterInput {
         setupOutputs()
     }
     
-    private func assemblyViewModel(with model: [AuthRegData]) -> AuthRegViewModel {
-        dataConverter.convert(with: model, segmentedValue: currentSegmentedValue, delegate: self)
+    private func assemblyViewModel(with model: [AuthRegData], isButtonValid: Bool) -> AuthRegViewModel {
+        self.isButtonValid = isButtonValid
+        return dataConverter.convert(with: model, segmentedValue: currentSegmentedValue, isButtonValid: isButtonValid, delegate: self)
     }
     
     private func setupOutputs() {
@@ -38,12 +41,35 @@ final class AuthRegPresenter: AuthRegPresenterInput {
 extension AuthRegPresenter: AuthRegViewOutput {
     func viewDidLoad() {
         let data = model.fetchAuthData()
-        view?.updateTableView(with: assemblyViewModel(with: data))
+        view?.updateTableView(with: assemblyViewModel(with: data, isButtonValid: false))
     }
 }
 
 extension AuthRegPresenter: AuthRegModelOutput {
+    func authEnteredDataUpdated(_ data: AuthRegModel.AuthEnteredData?) {
+        if data?.isValid ?? false {
+            if !isButtonValid {
+                view?.updateButtonCell(with: assemblyViewModel(with: model.fetchAuthData(), isButtonValid: true))
+            }
+        } else {
+            if isButtonValid {
+                view?.updateButtonCell(with: assemblyViewModel(with: model.fetchAuthData(), isButtonValid: false))
+            }
+        }
+    }
     
+    func regEnteredDataUpdated(_ data: AuthRegModel.RegEnteredData?) {
+        if data?.isValid ?? false,
+           isCheckBoxChecked {
+            if !isButtonValid {
+                view?.updateButtonCell(with: assemblyViewModel(with: model.fetchRegData(), isButtonValid: true))
+            }
+        } else {
+            if isButtonValid {
+                view?.updateButtonCell(with: assemblyViewModel(with: model.fetchRegData(), isButtonValid: false))
+            }
+        }
+    }
 }
 
 extension AuthRegPresenter: SegmentedControllTVCellDelegate {
@@ -55,7 +81,7 @@ extension AuthRegPresenter: SegmentedControllTVCellDelegate {
         } else {
             data = model.fetchAuthData()
         }
-        view?.updateTableView(with: assemblyViewModel(with: data))
+        view?.updateTableView(with: assemblyViewModel(with: data, isButtonValid: false))
     }
 }
 
@@ -76,5 +102,21 @@ extension AuthRegPresenter: TextFieldTVCellDelegate {
 extension AuthRegPresenter: ButtonTVCellDelegate {
     func buttonDidTap() {
         view?.showTabBar()
+    }
+}
+
+extension AuthRegPresenter: CheckBoxTVCellDelegate {
+    func checkBoxDidChange(_ value: Bool) {
+        isCheckBoxChecked = value
+        if model.regUserEnteredData?.isValid ?? false,
+           value {
+            if !isButtonValid {
+                view?.updateButtonCell(with: assemblyViewModel(with: model.fetchRegData(), isButtonValid: true))
+            }
+        } else {
+            if isButtonValid {
+                view?.updateButtonCell(with: assemblyViewModel(with: model.fetchRegData(), isButtonValid: false))
+            }
+        }
     }
 }

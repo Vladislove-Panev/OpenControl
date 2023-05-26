@@ -425,6 +425,7 @@
 		8B78C9202A1E4E9500B6C977 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				8B78C95B2A20A6DC00B6C977 /* Consultation */,
 				8B78C9372A1F676E00B6C977 /* ChatBot */,
 				8B78C91F2A1E4E8400B6C977 /* Main */,
 				8B78C88E2A1CE19A00B6C977 /* AuthReg */,
@@ -562,6 +563,13 @@
 				8B78C9562A1F87D000B6C977 /* MessageInputView.swift */,
 			);
 			path = MessageInput;
+			sourceTree = "<group>";
+		};
+		8B78C95B2A20A6DC00B6C977 /* Consultation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Consultation;
 			sourceTree = "<group>";
 		};
 		8BEE19082A1CAA580006EEA0 /* Start */ = {

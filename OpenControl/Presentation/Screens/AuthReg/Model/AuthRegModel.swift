@@ -8,11 +8,13 @@
 import Foundation
 
 protocol AuthRegModelOutput: AnyObject {
-    
+    func authEnteredDataUpdated(_ data: AuthRegModel.AuthEnteredData?)
+    func regEnteredDataUpdated(_ data: AuthRegModel.RegEnteredData?)
 }
 
 protocol AuthRegModelInput {
     var output: AuthRegModelOutput? { get set }
+    var regUserEnteredData: AuthRegModel.RegEnteredData? { get }
     func fetchAuthData() -> [AuthRegData]
     func fetchRegData() -> [AuthRegData]
     func isValid(_ text: String, type: AuthRegData.PlaceholderType) -> Bool
@@ -23,10 +25,38 @@ final class AuthRegModel {
     weak var output: AuthRegModelOutput?
     
     private let validator: Validatable
+    
+    struct AuthEnteredData {
+        let phoneOrMail: (value: String, isValid: Bool)
+        let password: (value: String, isValid: Bool)
+        
+        var isValid: Bool {
+            get {
+                phoneOrMail.isValid && password.isValid
+            }
+        }
+    }
+    
+    struct RegEnteredData {
+        let name: (value: String, isValid: Bool)
+        let surname: (value: String, isValid: Bool)
+        let middlename: String
+        let phone: (value: String, isValid: Bool)
+        let mail: (value: String, isValid: Bool)
+        let password: (value: String, isValid: Bool)
+        let repeatedPassword: (value: String, isValid: Bool)
+        
+        var isValid: Bool {
+            get {
+                name.isValid && surname.isValid && phone.isValid &&
+                mail.isValid && password.isValid && repeatedPassword.isValid
+            }
+        }
+    }
 
     private let authData = [AuthRegData(title: nil, placeholders: [
-        .init(text: "Телефон / Эл.почта", isPassword: false, showPassIcon: false, type: .none),
-        .init(text: "Пароль", isPassword: true, showPassIcon: false, type: .none)
+        .init(text: "Телефон / Эл.почта", isPassword: false, showPassIcon: false, type: .mailOrPhone),
+        .init(text: "Пароль", isPassword: true, showPassIcon: false, type: .authPass)
     ])]
     
     private let regData = [
@@ -45,6 +75,18 @@ final class AuthRegModel {
         ])
     ]
     
+    private(set) var authUserEnteredData: AuthEnteredData? {
+        willSet {
+            output?.authEnteredDataUpdated(newValue)
+        }
+    }
+    
+    private(set) var regUserEnteredData: RegEnteredData? {
+        willSet {
+            output?.regEnteredDataUpdated(newValue)
+        }
+    }
+    
     private var firstEnteredPass = ""
     
     init(validator: Validatable, output: AuthRegModelOutput? = nil) {
@@ -57,22 +99,110 @@ extension AuthRegModel: AuthRegModelInput {
     func isValid(_ text: String, type: AuthRegData.PlaceholderType) -> Bool {
         switch type {
         case .name:
-            return validator.isTextValid(text)
+            let oldValue = regUserEnteredData
+            let isValid = validator.isTextValid(text)
+            let newValue = RegEnteredData(
+                name: (text, isValid),
+                surname: oldValue?.surname ?? ("", false),
+                middlename: oldValue?.middlename ?? "",
+                phone: oldValue?.phone ?? ("", false),
+                mail: oldValue?.mail ?? ("", false),
+                password: oldValue?.password ?? ("", false),
+                repeatedPassword: oldValue?.repeatedPassword ?? ("", false)
+            )
+            regUserEnteredData = newValue
+            return isValid
         case .surname:
-            return validator.isTextValid(text)
+            let oldValue = regUserEnteredData
+            let isValid = validator.isTextValid(text)
+            let newValue = RegEnteredData(
+                name: oldValue?.name ?? ("", false),
+                surname: (text, isValid),
+                middlename: oldValue?.middlename ?? "",
+                phone: oldValue?.phone ?? ("", false),
+                mail: oldValue?.mail ?? ("", false),
+                password: oldValue?.password ?? ("", false),
+                repeatedPassword: oldValue?.repeatedPassword ?? ("", false)
+            )
+            regUserEnteredData = newValue
+            return isValid
         case .middlename:
             break
         case .phone:
-            return validator.isPhoneValid(text)
+            let oldValue = regUserEnteredData
+            let isValid = validator.isPhoneValid(text)
+            let newValue = RegEnteredData(
+                name: oldValue?.name ?? ("", false),
+                surname: oldValue?.surname ?? ("", false),
+                middlename: oldValue?.middlename ?? "",
+                phone: (text, isValid),
+                mail: oldValue?.mail ?? ("", false),
+                password: oldValue?.password ?? ("", false),
+                repeatedPassword: oldValue?.repeatedPassword ?? ("", false)
+            )
+            regUserEnteredData = newValue
+            return isValid
         case .mail:
-            return validator.isEmailValid(text)
+            let oldValue = regUserEnteredData
+            let isValid = validator.isEmailValid(text)
+            let newValue = RegEnteredData(
+                name: oldValue?.name ?? ("", false),
+                surname: oldValue?.surname ?? ("", false),
+                middlename: oldValue?.middlename ?? "",
+                phone: oldValue?.phone ?? ("", false),
+                mail: (text, isValid),
+                password: oldValue?.password ?? ("", false),
+                repeatedPassword: oldValue?.repeatedPassword ?? ("", false)
+            )
+            regUserEnteredData = newValue
+            return isValid
         case .pass:
             firstEnteredPass = text
-            return validator.isPasswordValid(text)
+            let oldValue = regUserEnteredData
+            let isValid = validator.isPasswordValid(text)
+            let newValue = RegEnteredData(
+                name: oldValue?.name ?? ("", false),
+                surname: oldValue?.surname ?? ("", false),
+                middlename: oldValue?.middlename ?? "",
+                phone: oldValue?.phone ?? ("", false),
+                mail: oldValue?.mail ?? ("", false),
+                password: (text, isValid),
+                repeatedPassword: oldValue?.repeatedPassword ?? ("", false)
+            )
+            regUserEnteredData = newValue
+            return isValid
         case .repeatPass:
-            return validator.isPasswordValid(text) || text == firstEnteredPass
+            let oldValue = regUserEnteredData
+            let isValid = validator.isPasswordValid(text) || text == firstEnteredPass
+            let newValue = RegEnteredData(
+                name: oldValue?.name ?? ("", false),
+                surname: oldValue?.surname ?? ("", false),
+                middlename: oldValue?.middlename ?? "",
+                phone: oldValue?.phone ?? ("", false),
+                mail: oldValue?.mail ?? ("", false),
+                password: oldValue?.password ?? ("", false),
+                repeatedPassword: (text, isValid)
+            )
+            regUserEnteredData = newValue
+            return isValid
         case .mailOrPhone:
-            break
+            let oldValue = authUserEnteredData
+            let isValid = !text.isEmpty
+            let newValue = AuthEnteredData(
+                phoneOrMail: (text, isValid),
+                password: oldValue?.password ?? ("", false)
+            )
+            authUserEnteredData = newValue
+            return true
+        case .authPass:
+            let oldValue = authUserEnteredData
+            let isValid = !text.isEmpty
+            let newValue = AuthEnteredData(
+                phoneOrMail: oldValue?.phoneOrMail ?? ("", false),
+                password: (text, isValid)
+            )
+            authUserEnteredData = newValue
+            return true
         case .none:
             break
         }
