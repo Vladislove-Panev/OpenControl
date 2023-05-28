@@ -15,6 +15,7 @@ protocol AuthRegViewInput: AnyObject {
     func updateTableView(with viewModel: AuthRegViewModel)
     func updateButtonCell(with viewModel: AuthRegViewModel)
     func showTabBar()
+    func showAlert(with error: Error)
 }
 
 protocol AuthRegViewOutput: AnyObject {
@@ -49,6 +50,10 @@ final class AuthRegViewController: UIViewController {
 }
 
 extension AuthRegViewController: AuthRegViewInput {
+    func showAlert(with error: Error) {
+        showErrorAlert(error: error)
+    }
+    
     func showTabBar() {
         let tabBarController = TabBarAssembly.assembly()
         view.window?.rootViewController = tabBarController

@@ -8,6 +8,7 @@
 import Foundation
 
 struct BookSlotRequest: Codable {
-    let slotId: Int
+    let topic: String
     let userId: CLong
+    let consultationSlotId: String
 }

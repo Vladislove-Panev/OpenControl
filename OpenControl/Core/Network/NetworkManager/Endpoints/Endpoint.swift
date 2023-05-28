@@ -12,5 +12,6 @@ protocol Endpoint {
     var baseURL: String { get }
     var path: String { get }
     var method: String { get }
-    var queryItems: [URLQueryItem] { get }
+    var parameters: [String: Any]? { get }
+    var queryItems: [URLQueryItem]? { get }
 }

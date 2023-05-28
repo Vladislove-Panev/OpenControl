@@ -19,6 +19,16 @@ extension UIView {
         layer.position = center
     }
     
+    func removeShadow() {
+        layer.shadowPath = nil
+        layer.shadowColor = UIColor.clear.cgColor
+        layer.shadowOpacity = 0
+        layer.shadowRadius = 0
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.bounds = bounds
+        layer.position = center
+    }
+    
     func scaleAnimation(duration: Double, completion: (() -> Void)? = nil) {
         UIView.animate(withDuration: duration,
                        animations: {
@@ -30,5 +40,37 @@ extension UIView {
             }
             completion?()
         })
+    }
+    
+    func addTopBorder(with color: UIColor?, andWidth borderWidth: CGFloat) {
+        let border = UIView()
+        border.backgroundColor = color
+        border.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
+        border.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: borderWidth)
+        addSubview(border)
+    }
+
+    func addBottomBorder(with color: UIColor?, andWidth borderWidth: CGFloat) {
+        let border = UIView()
+        border.backgroundColor = color
+        border.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+        border.frame = CGRect(x: 0, y: frame.size.height - borderWidth, width: frame.size.width, height: borderWidth)
+        addSubview(border)
+    }
+
+    func addLeftBorder(with color: UIColor?, andWidth borderWidth: CGFloat) {
+        let border = UIView()
+        border.backgroundColor = color
+        border.frame = CGRect(x: 0, y: 0, width: borderWidth, height: frame.size.height)
+        border.autoresizingMask = [.flexibleHeight, .flexibleRightMargin]
+        addSubview(border)
+    }
+
+    func addRightBorder(with color: UIColor?, andWidth borderWidth: CGFloat) {
+        let border = UIView()
+        border.backgroundColor = color
+        border.autoresizingMask = [.flexibleHeight, .flexibleLeftMargin]
+        border.frame = CGRect(x: frame.size.width - borderWidth, y: 0, width: borderWidth, height: frame.size.height)
+        addSubview(border)
     }
 }

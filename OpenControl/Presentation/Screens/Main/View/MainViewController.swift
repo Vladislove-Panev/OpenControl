@@ -10,10 +10,11 @@ import UIKit
 protocol MainViewInput: AnyObject {
     var presenter: MainPresenterInput? { get set }
     var output: MainViewOutput? { get set }
+    func setupHeader(with title: String)
 }
 
 protocol MainViewOutput: AnyObject {
-    
+    func viewDidLoad()
 }
 
 final class MainViewController: UIViewController {
@@ -50,6 +51,7 @@ final class MainViewController: UIViewController {
         view.backgroundColor = R.color.mainBackgroundColor()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         setupLayout()
+        output?.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,7 +82,9 @@ final class MainViewController: UIViewController {
 }
 
 extension MainViewController: MainViewInput {
-    
+    func setupHeader(with title: String) {
+        navBarView.setup(with: title)
+    }
 }
 
 extension MainViewController: UICollectionViewDataSource {
@@ -115,7 +119,9 @@ extension MainViewController: UICollectionViewDelegate {
             guard let model = self.presenter?.model(for: indexPath) else { return }
             switch model.navigateTo {
             case .consultation:
-                break
+                if let vc = ConsultationAssembly.assembly() {
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             case .chatBot:
                 if let vc = ChatBotAssembly.assembly() {
                     self.navigationController?.pushViewController(vc, animated: true)

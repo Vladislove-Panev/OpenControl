@@ -9,11 +9,11 @@ import Foundation
 
 struct ConsultationSlot: Codable {
     
-    enum Status: Codable {
+    enum Status: Int, Codable {
         case available, busy, notAvailable
     }
     
-    let id: Int
+    let id: String
     let slotDate: Date
     let slotTime: String
     let consultationSlotStatus: Status

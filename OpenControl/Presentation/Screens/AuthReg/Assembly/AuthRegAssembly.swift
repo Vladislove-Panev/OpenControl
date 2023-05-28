@@ -12,9 +12,12 @@ struct AuthRegAssembly {
         let validator = Validator()
         let tableViewManager = AuthRegTableViewManager()
         let view: AuthRegViewInput = AuthRegViewController()
-        let model: AuthRegModelInput = AuthRegModel(validator: validator)
+        let networkManager = URLSessionNetworkManager()
+        let service: AuthServiceProtocol = AuthService(networkManager: networkManager)
+        let userDefaults: UserDefaultsServiceProtocol = UserDefaultsService()
+        let model: AuthRegModelInput = AuthRegModel(validator: validator, service: service, userDefaults: userDefaults)
         let dataConverter = AuthRegDataConverter()
-        let presenter: AuthRegPresenterInput = AuthRegPresenter(view: view, model: model, dataConverter: dataConverter)
+        let presenter: AuthRegPresenterInput = AuthRegPresenter(view: view, model: model, userType: .user, dataConverter: dataConverter)
         view.presenter = presenter
         view.tableViewManager = tableViewManager
         return view as? UIViewController

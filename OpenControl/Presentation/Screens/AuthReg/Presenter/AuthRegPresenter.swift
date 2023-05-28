@@ -8,7 +8,7 @@
 import Foundation
 
 protocol AuthRegPresenterInput {
-    init(view: AuthRegViewInput, model: AuthRegModelInput, dataConverter: AuthRegDataConverter)
+    init(view: AuthRegViewInput, model: AuthRegModelInput, userType: UserType, dataConverter: AuthRegDataConverter)
 }
 
 final class AuthRegPresenter: AuthRegPresenterInput {
@@ -19,11 +19,13 @@ final class AuthRegPresenter: AuthRegPresenterInput {
     private var currentSegmentedValue = 1
     private var isButtonValid = false
     private var isCheckBoxChecked = false
+    private let userType: UserType
     
-    init(view: AuthRegViewInput, model: AuthRegModelInput, dataConverter: AuthRegDataConverter) {
+    init(view: AuthRegViewInput, model: AuthRegModelInput, userType: UserType, dataConverter: AuthRegDataConverter) {
         self.view = view
         self.model = model
         self.dataConverter = dataConverter
+        self.userType = userType
         setupOutputs()
     }
     
@@ -46,6 +48,22 @@ extension AuthRegPresenter: AuthRegViewOutput {
 }
 
 extension AuthRegPresenter: AuthRegModelOutput {
+    func didSuccessRegisterUser(with data: RegisterUserResponse) {
+        view?.showTabBar()
+    }
+    
+    func didFailedRegisterUser(with error: Error) {
+        view?.showAlert(with: error)
+    }
+    
+    func didSuccessAuthUser(with data: AuthenticationUserResponse) {
+        view?.showTabBar()
+    }
+    
+    func didFailedAuthUser(with error: Error) {
+        view?.showAlert(with: error)
+    }
+    
     func authEnteredDataUpdated(_ data: AuthRegModel.AuthEnteredData?) {
         if data?.isValid ?? false {
             if !isButtonValid {
@@ -101,7 +119,11 @@ extension AuthRegPresenter: TextFieldTVCellDelegate {
 
 extension AuthRegPresenter: ButtonTVCellDelegate {
     func buttonDidTap() {
-        view?.showTabBar()
+        if currentSegmentedValue == 0 {
+            model.registerUser()
+        } else {
+            model.authUser(with: userType)
+        }
     }
 }
 

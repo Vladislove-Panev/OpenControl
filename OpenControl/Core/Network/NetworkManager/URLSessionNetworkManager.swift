@@ -13,7 +13,9 @@ final class URLSessionNetworkManager: NetworkManager {
 
         var components = URLComponents()
         components.scheme = endpoint.scheme
-        components.host = endpoint.baseURL
+        // TODO: Fix this later
+        components.host = String(endpoint.baseURL.split(separator: ":").first!)
+        components.port = Int(endpoint.baseURL.split(separator: ":").last!)
         components.path = endpoint.path
         components.queryItems = endpoint.queryItems
         
@@ -27,6 +29,21 @@ final class URLSessionNetworkManager: NetworkManager {
         
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method
+        
+        if let params = endpoint.parameters {
+            do {
+                request.httpBody = try JSONSerialization.data(
+                    withJSONObject: params,
+                    options: .prettyPrinted
+                )
+            } catch let error {
+                print(error.localizedDescription)
+                completion(.failure(error))
+            }
+        }
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
 
         let urlSession = URLSession.shared.dataTask(with: request) { data, response, error in
 

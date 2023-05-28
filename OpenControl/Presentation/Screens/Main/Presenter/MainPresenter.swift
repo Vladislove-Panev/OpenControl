@@ -39,7 +39,18 @@ final class MainPresenter: MainPresenterInput {
 }
 
 extension MainPresenter: MainViewOutput {
-    
+    func viewDidLoad() {
+        if let regData = model.fetchUserRegData() {
+            if regData.middleName.isEmpty {
+                view?.setupHeader(with: "\(regData.lastName) \(regData.firstName)")
+            } else {
+                view?.setupHeader(with: "\(regData.firstName) \(regData.middleName)")
+            }
+        } else if let authData = model.fetchUserAuthData(),
+                  let userName = authData.userName {
+            view?.setupHeader(with: userName)
+        }
+    }
 }
 
 extension MainPresenter: MainModelOutput {

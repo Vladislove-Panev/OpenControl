@@ -10,7 +10,8 @@ import UIKit
 struct MainAssembly {
     static func assembly() -> UIViewController? {
         let view: MainViewInput = MainViewController()
-        let model: MainModelInput = MainModel()
+        let userDefaults: UserDefaultsServiceProtocol = UserDefaultsService()
+        let model: MainModelInput = MainModel(userDefaults: userDefaults)
         let presenter: MainPresenterInput = MainPresenter(view: view, model: model)
         view.presenter = presenter
         return view as? UIViewController

@@ -14,7 +14,6 @@ final class MainNavBarView: UIView {
         label.font = .interRegular400(with: 16)
         label.textColor = .black
         label.setCharacterSpacing(-0.41)
-        label.text = "Алексей Алексеевич"
         return label
     }()
     
@@ -48,6 +47,10 @@ final class MainNavBarView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupLayout()
+    }
+    
+    func setup(with title: String) {
+        titleLabel.text = title
     }
     
     private func setupLayout() {

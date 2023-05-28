@@ -10,6 +10,10 @@ import Foundation
 protocol AuthRegModelOutput: AnyObject {
     func authEnteredDataUpdated(_ data: AuthRegModel.AuthEnteredData?)
     func regEnteredDataUpdated(_ data: AuthRegModel.RegEnteredData?)
+    func didSuccessRegisterUser(with data: RegisterUserResponse)
+    func didFailedRegisterUser(with error: Error)
+    func didSuccessAuthUser(with data: AuthenticationUserResponse)
+    func didFailedAuthUser(with error: Error)
 }
 
 protocol AuthRegModelInput {
@@ -17,6 +21,8 @@ protocol AuthRegModelInput {
     var regUserEnteredData: AuthRegModel.RegEnteredData? { get }
     func fetchAuthData() -> [AuthRegData]
     func fetchRegData() -> [AuthRegData]
+    func registerUser()
+    func authUser(with type: UserType)
     func isValid(_ text: String, type: AuthRegData.PlaceholderType) -> Bool
 }
 
@@ -25,6 +31,8 @@ final class AuthRegModel {
     weak var output: AuthRegModelOutput?
     
     private let validator: Validatable
+    private let service: AuthServiceProtocol
+    private let userDefaults: UserDefaultsServiceProtocol
     
     struct AuthEnteredData {
         let phoneOrMail: (value: String, isValid: Bool)
@@ -89,13 +97,77 @@ final class AuthRegModel {
     
     private var firstEnteredPass = ""
     
-    init(validator: Validatable, output: AuthRegModelOutput? = nil) {
+    init(
+        validator: Validatable,
+        service: AuthServiceProtocol,
+        userDefaults: UserDefaultsServiceProtocol,
+        output: AuthRegModelOutput? = nil
+    ) {
         self.output = output
         self.validator = validator
+        self.service = service
+        self.userDefaults = userDefaults
     }
 }
 
 extension AuthRegModel: AuthRegModelInput {
+    func registerUser() {
+        guard let regUserEnteredData = regUserEnteredData,
+              regUserEnteredData.isValid else {
+            output?.didFailedRegisterUser(with: NSError(domain: "1", code: 0))
+            return
+        }
+        service.register(
+            .init(
+                firstName: regUserEnteredData.name.value,
+                lastName: regUserEnteredData.surname.value,
+                email: regUserEnteredData.mail.value,
+                mobilePhone: regUserEnteredData.phone.value,
+                password: regUserEnteredData.password.value,
+                repeatPassword: regUserEnteredData.repeatedPassword.value,
+                ditSecurityQuestion: nil,
+                ditSecurityAnswer: nil,
+                middleName: regUserEnteredData.middlename
+            )) { [weak self] result in
+                switch result {
+                case .success(let data):
+                    try? self?.userDefaults.set(object: data, forKey: .userRegData)
+                    self?.output?.didSuccessRegisterUser(with: data)
+                case .failure(let error):
+                    self?.output?.didFailedRegisterUser(with: error)
+                }
+            }
+    }
+    
+    func authUser(with type: UserType) {
+        guard let authUserEnteredData = authUserEnteredData,
+              authUserEnteredData.isValid else {
+            output?.didFailedAuthUser(with: NSError(domain: "1", code: 0))
+            return
+        }
+        
+        service.auth(
+            .init(
+                email: authUserEnteredData.phoneOrMail.value,
+                password: authUserEnteredData.password.value
+            ),
+            userType: type) { [weak self] result in
+                switch result {
+                case .success(let data):
+                    if data.isAuthenticated {
+                        try? self?.userDefaults.set(object: data, forKey: .userAuthData)
+                        self?.output?.didSuccessAuthUser(with: data)
+                    } else {
+                        self?.output?.didFailedAuthUser(
+                            with: NSError(domain: "1", code: 1, userInfo: [NSLocalizedDescriptionKey: data.message])
+                        )
+                    }
+                case .failure(let error):
+                    self?.output?.didFailedAuthUser(with: error)
+                }
+            }
+    }
+    
     func isValid(_ text: String, type: AuthRegData.PlaceholderType) -> Bool {
         switch type {
         case .name:
@@ -127,7 +199,18 @@ extension AuthRegModel: AuthRegModelInput {
             regUserEnteredData = newValue
             return isValid
         case .middlename:
-            break
+            let oldValue = regUserEnteredData
+            let newValue = RegEnteredData(
+                name: oldValue?.name ?? ("", false),
+                surname: oldValue?.surname ?? ("", false),
+                middlename: text,
+                phone: oldValue?.phone ?? ("", false),
+                mail: oldValue?.mail ?? ("", false),
+                password: oldValue?.password ?? ("", false),
+                repeatedPassword: oldValue?.repeatedPassword ?? ("", false)
+            )
+            regUserEnteredData = newValue
+            return true
         case .phone:
             let oldValue = regUserEnteredData
             let isValid = validator.isPhoneValid(text)

@@ -14,6 +14,8 @@ protocol MainModelOutput: AnyObject {
 protocol MainModelInput {
     var output: MainModelOutput? { get set }
     func fetchStockData() -> [MainModel.ServiceModel]
+    func fetchUserAuthData() -> AuthenticationUserResponse?
+    func fetchUserRegData() -> RegisterUserResponse?
 }
 
 final class MainModel {
@@ -27,6 +29,7 @@ final class MainModel {
     }
     
     weak var output: MainModelOutput?
+    private let userDefaults: UserDefaultsServiceProtocol
     private let stockModels: [ServiceModel] = [
         .init(
             stockModel: StockModel(
@@ -69,9 +72,21 @@ final class MainModel {
             navigateTo: .experts
         )
     ]
+    
+    init(userDefaults: UserDefaultsServiceProtocol) {
+        self.userDefaults = userDefaults
+    }
 }
 
 extension MainModel: MainModelInput {
+    func fetchUserAuthData() -> AuthenticationUserResponse? {
+        try? userDefaults.get(objectType: AuthenticationUserResponse.self, forKey: .userAuthData)
+    }
+    
+    func fetchUserRegData() -> RegisterUserResponse? {
+        try? userDefaults.get(objectType: RegisterUserResponse.self, forKey: .userRegData)
+    }
+    
     func fetchStockData() -> [ServiceModel] {
         stockModels
     }
