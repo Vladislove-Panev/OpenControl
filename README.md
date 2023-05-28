@@ -46,3 +46,7 @@
 ### АРХИТЕКТУРА 
 
 - MVP
+
+### FIGMA
+
+https://www.figma.com/file/X94K51WgB8aUkeSMeP8cTn/Torpedo?type=design&node-id=0-1&t=bLPtqSaZ1hbtE0Yl-0
