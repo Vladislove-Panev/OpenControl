@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leader02.Api", "Leader02.Api\Leader02.Api.csproj", "{FC8D3C74-DC8E-4B30-8C34-04206E639FA5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leader.Entity", "Leader.Entity\Leader.Entity.csproj", "{E1719442-95C4-45AF-813B-ED653AA46F15}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leader02.Infrustructure", "Leader02.Infrustructure\Leader02.Infrustructure.csproj", "{85FDCF88-B356-4CB1-A50F-302915767CA6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leader02.Application", "Leader02.Application\Leader02.Application.csproj", "{F1E5D5E1-9FB0-416C-A3DB-0ED02DA06EEE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leader02.DataSetsParser", "Leader02.DataSetsParser\Leader02.DataSetsParser.csproj", "{076D4209-0F3D-4567-A924-031570BE67E6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leader02.ChatBotApi", "Leader02.ChatBotApi\Leader02.ChatBotApi.csproj", "{A81CC6DD-49AB-4995-A1B6-ED8272AF8812}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC8D3C74-DC8E-4B30-8C34-04206E639FA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC8D3C74-DC8E-4B30-8C34-04206E639FA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC8D3C74-DC8E-4B30-8C34-04206E639FA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC8D3C74-DC8E-4B30-8C34-04206E639FA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1719442-95C4-45AF-813B-ED653AA46F15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1719442-95C4-45AF-813B-ED653AA46F15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1719442-95C4-45AF-813B-ED653AA46F15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1719442-95C4-45AF-813B-ED653AA46F15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85FDCF88-B356-4CB1-A50F-302915767CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85FDCF88-B356-4CB1-A50F-302915767CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85FDCF88-B356-4CB1-A50F-302915767CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85FDCF88-B356-4CB1-A50F-302915767CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1E5D5E1-9FB0-416C-A3DB-0ED02DA06EEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1E5D5E1-9FB0-416C-A3DB-0ED02DA06EEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1E5D5E1-9FB0-416C-A3DB-0ED02DA06EEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1E5D5E1-9FB0-416C-A3DB-0ED02DA06EEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{076D4209-0F3D-4567-A924-031570BE67E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{076D4209-0F3D-4567-A924-031570BE67E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{076D4209-0F3D-4567-A924-031570BE67E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{076D4209-0F3D-4567-A924-031570BE67E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A81CC6DD-49AB-4995-A1B6-ED8272AF8812}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A81CC6DD-49AB-4995-A1B6-ED8272AF8812}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A81CC6DD-49AB-4995-A1B6-ED8272AF8812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A81CC6DD-49AB-4995-A1B6-ED8272AF8812}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
