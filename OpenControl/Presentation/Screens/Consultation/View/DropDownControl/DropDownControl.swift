@@ -128,6 +128,10 @@ final class DropDownControl: UIControl {
         self.data = data
     }
     
+    func setTitle(_ title: String) {
+        titleLabel.text = title
+    }
+    
     func openSlide() {
         
         guard isEnabled else { return }

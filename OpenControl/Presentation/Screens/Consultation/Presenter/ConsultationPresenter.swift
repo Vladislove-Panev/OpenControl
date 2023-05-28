@@ -29,6 +29,10 @@ final class ConsultationPresenter: ConsultationPresenterInput {
 }
 
 extension ConsultationPresenter: ConsultationViewOutput {
+    func didTapEnrollBtn(with consultationId: String, topicId: String) {
+        model.bookConsultation(with: consultationId, topicId: topicId)
+    }
+    
     
     func didSelectSubDepartment(with id: String) {
         model.getConsultationTopic(with: id)
@@ -57,7 +61,7 @@ extension ConsultationPresenter: ConsultationModelOutput {
     }
     
     func didFailureGetSubDepartments(error: Error) {
-        print(error.localizedDescription)
+        view?.showError(error)
     }
     
     func didSuccessGetDepartments(data: [ConsultationModel.Department]) {
@@ -65,7 +69,7 @@ extension ConsultationPresenter: ConsultationModelOutput {
     }
     
     func didFailureGetDepartments(error: Error) {
-        print(error.localizedDescription)
+        view?.showError(error)
     }
     
     func didSuccessConsultationTopic(data: [ConsultationModel.Department]) {
@@ -73,22 +77,23 @@ extension ConsultationPresenter: ConsultationModelOutput {
     }
     
     func didFailureConsultationTopic(error: Error) {
-        print(error.localizedDescription)
+        view?.showError(error)
     }
     
     func didSuccessConsultationSlot(data: [ConsultationSlot]) {
-        // view?.setDate(da)
+        view?.setDate(data)
     }
     
     func didFailureConsultationSlot(error: Error) {
         print(error.localizedDescription)
+        view?.showError(error)
     }
     
     func didSuccessBookConsultation(data: Consultation) {
-        
+        view?.showConfirm()
     }
     
     func didFailureBookConsultation(error: Error) {
-        print(error.localizedDescription)
+        view?.showError(error)
     }
 }

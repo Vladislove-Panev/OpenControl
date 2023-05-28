@@ -14,7 +14,7 @@ struct ConsultationSlot: Codable {
     }
     
     let id: String
-    let slotDate: Date
+    let slotDate: String
     let slotTime: String
-    let consultationSlotStatus: Status
+    let status: Status
 }

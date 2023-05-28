@@ -29,6 +29,8 @@ final class URLSessionNetworkManager: NetworkManager {
         
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         if let params = endpoint.parameters {
             do {
@@ -41,9 +43,6 @@ final class URLSessionNetworkManager: NetworkManager {
                 completion(.failure(error))
             }
         }
-        
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
 
         let urlSession = URLSession.shared.dataTask(with: request) { data, response, error in
 

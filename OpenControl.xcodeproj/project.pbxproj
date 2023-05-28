@@ -101,6 +101,7 @@
 		8B78C9DB2A2352B600B6C977 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9DA2A2352B600B6C977 /* Department.swift */; };
 		8B78C9DD2A23536D00B6C977 /* SubDepartment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9DC2A23536D00B6C977 /* SubDepartment.swift */; };
 		8B78C9E02A23543000B6C977 /* ConsultationTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9DF2A23543000B6C977 /* ConsultationTopic.swift */; };
+		8B78C9E62A23824E00B6C977 /* ThankYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9E52A23824E00B6C977 /* ThankYouViewController.swift */; };
 		8BEE19012A1CA99A0006EEA0 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 8BEE19002A1CA99A0006EEA0 /* RswiftLibrary */; };
 		8BEE19072A1CAA340006EEA0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8BEE19062A1CAA340006EEA0 /* SnapKit */; };
 		8BEE190D2A1CAB280006EEA0 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE19092A1CAB280006EEA0 /* StartPresenter.swift */; };
@@ -230,6 +231,7 @@
 		8B78C9DA2A2352B600B6C977 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
 		8B78C9DC2A23536D00B6C977 /* SubDepartment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubDepartment.swift; sourceTree = "<group>"; };
 		8B78C9DF2A23543000B6C977 /* ConsultationTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultationTopic.swift; sourceTree = "<group>"; };
+		8B78C9E52A23824E00B6C977 /* ThankYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankYouViewController.swift; sourceTree = "<group>"; };
 		8BEE19092A1CAB280006EEA0 /* StartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
 		8BEE190A2A1CAB280006EEA0 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		8BEE190B2A1CAB280006EEA0 /* StartAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAssembly.swift; sourceTree = "<group>"; };
@@ -649,6 +651,7 @@
 		8B78C9682A20CF0100B6C977 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8B78C9E42A23823700B6C977 /* ThankYou */,
 				8B78C9C02A23214C00B6C977 /* Header */,
 				8B78C99C2A20DD9700B6C977 /* DropDownControl */,
 				8B78C95E2A20CEF100B6C977 /* ConsultationViewController.swift */,
@@ -689,7 +692,6 @@
 				8B78C9BE2A23187B00B6C977 /* CollectionViewTimeLayout.swift */,
 				8B78C9A42A2234BF00B6C977 /* CalendarPickerFooterView.swift */,
 				8B78C9A52A2234BF00B6C977 /* CalendarPickerViewController.swift */,
-				8B78C9A62A2234BF00B6C977 /* CalendarDateCollectionViewCell.swift */,
 				8B78C9A72A2234BF00B6C977 /* CalendarPickerHeaderView.swift */,
 			);
 			path = CalendarPicker;
@@ -708,6 +710,7 @@
 		8B78C9BB2A23185C00B6C977 /* CVCells */ = {
 			isa = PBXGroup;
 			children = (
+				8B78C9A62A2234BF00B6C977 /* CalendarDateCollectionViewCell.swift */,
 				8B78C9BC2A23186F00B6C977 /* TimeCell.swift */,
 			);
 			path = CVCells;
@@ -753,6 +756,14 @@
 				8B78C9D72A234FAC00B6C977 /* ConsultationService.swift */,
 			);
 			path = Consultation;
+			sourceTree = "<group>";
+		};
+		8B78C9E42A23823700B6C977 /* ThankYou */ = {
+			isa = PBXGroup;
+			children = (
+				8B78C9E52A23824E00B6C977 /* ThankYouViewController.swift */,
+			);
+			path = ThankYou;
 			sourceTree = "<group>";
 		};
 		8BEE19082A1CAA580006EEA0 /* Start */ = {
@@ -1154,6 +1165,7 @@
 				8BF087AB2A1A692B000F7846 /* Endpoint.swift in Sources */,
 				8BEE190D2A1CAB280006EEA0 /* StartPresenter.swift in Sources */,
 				8BF087BB2A1A6DAF000F7846 /* AdminLoginRequest.swift in Sources */,
+				8B78C9E62A23824E00B6C977 /* ThankYouViewController.swift in Sources */,
 				8BEE192A2A1CCA780006EEA0 /* StockModel.swift in Sources */,
 				8B78C8A62A1CEBF600B6C977 /* CellConfigurator.swift in Sources */,
 				8BF087A82A1A692B000F7846 /* URLSessionNetworkManager.swift in Sources */,

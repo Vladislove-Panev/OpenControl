@@ -15,6 +15,8 @@ protocol ConsultationViewInput: AnyObject {
     func setSubDepartments(_ departments: [ConsultationModel.Department])
     func setAppeal(_ departments: [ConsultationModel.Department])
     func setDate(_ departments: [ConsultationSlot])
+    func showConfirm()
+    func showError(_ error: Error)
 }
 
 protocol ConsultationViewOutput: AnyObject {
@@ -23,6 +25,7 @@ protocol ConsultationViewOutput: AnyObject {
     func didSelectSubDepartment(with id: String)
     func didSelectAppeal(with id: String)
     func didSelectDate(with id: String)
+    func didTapEnrollBtn(with consultationId: String, topicId: String)
 }
 
 final class ConsultationViewController: UIViewController {
@@ -31,6 +34,8 @@ final class ConsultationViewController: UIViewController {
     var presenter: ConsultationPresenterInput?
     
     private var consultationSlots: [ConsultationSlot]?
+    private var selectedSlot: ConsultationSlot?
+    private var selectedTopicId: String?
     
     private lazy var headerView: ConsultationHeaderView = {
         let headerView = ConsultationHeaderView { [weak self] in
@@ -83,7 +88,7 @@ final class ConsultationViewController: UIViewController {
         button.setTitle("Записаться", for: .normal)
         button.isEnabled = false
         
-        // button.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -109,6 +114,7 @@ final class ConsultationViewController: UIViewController {
     
     private func didSelectAppeal(with id: String) {
         closeAll()
+        selectedTopicId = id
         output?.didSelectAppeal(with: id)
         setButtonUnavailable()
     }
@@ -275,6 +281,12 @@ final class ConsultationViewController: UIViewController {
         button.isEnabled = false
     }
     
+    @objc private func buttonDidTap(_ sender: UIButton) {
+        guard let selectedSlot = selectedSlot,
+        let selectedTopicId = selectedTopicId else { return }
+        output?.didTapEnrollBtn(with: selectedSlot.id, topicId: selectedTopicId)
+    }
+    
     @objc private func tap1() {
         if firstDropDown.isOpened {
             closeFirstDropDown()
@@ -325,14 +337,15 @@ final class ConsultationViewController: UIViewController {
     
     @objc private func tap4() {
         
-        guard let consultationSlots = consultationSlots,
-              let firstSlot = consultationSlots.first else { return }
+        guard let consultationSlots = consultationSlots else { return }
         
         let calendarVC = CalendarPickerViewController(
-            baseDate: firstSlot.slotDate,
+            baseDate: Date.init(),
             consultationSlots: consultationSlots
-        ) { selectedSlot in
-            print(selectedSlot)
+        ) { [weak self] selectedSlot in
+            self?.selectedSlot = selectedSlot
+            self?.fourthDropDown.setTitle(selectedSlot.slotTime)
+            self?.setButtonAvailable()
         }
         
         let options = SheetOptions(
@@ -357,9 +370,26 @@ final class ConsultationViewController: UIViewController {
 }
 
 extension ConsultationViewController: ConsultationViewInput {
+    func showConfirm() {
+        let thankYouVC = ThankYouViewController()
+        
+        let options = SheetOptions(
+            shrinkPresentingViewController: false
+        )
+        
+        let sheetController = SheetViewController(controller: thankYouVC, sizes: [.intrinsic], options: options)
+        
+        self.present(sheetController, animated: true, completion: nil)
+    }
+    
+    func showError(_ error: Error) {
+        showErrorAlert(error: error)
+    }
+    
     func setAppeal(_ departments: [ConsultationModel.Department]) {
         thirdDropDown.addData(departments.map({ ($0.id, $0.name) }))
         thirdDropDown.isEnabled = true
+        fourthDropDown.isEnabled = false
     }
     
     func setDate(_ departments: [ConsultationSlot]) {
@@ -370,11 +400,16 @@ extension ConsultationViewController: ConsultationViewInput {
     func setSubDepartments(_ departments: [ConsultationModel.Department]) {
         secondDropDown.addData(departments.map({ ($0.id, $0.name) }))
         secondDropDown.isEnabled = true
+        thirdDropDown.isEnabled = false
+        fourthDropDown.isEnabled = false
     }
     
     func setDepartments(_ departments: [ConsultationModel.Department]) {
         firstDropDown.addData(departments.map({ ($0.id, $0.name) }))
         firstDropDown.isEnabled = true
+        secondDropDown.isEnabled = false
+        thirdDropDown.isEnabled = false
+        fourthDropDown.isEnabled = false
     }
 }
 

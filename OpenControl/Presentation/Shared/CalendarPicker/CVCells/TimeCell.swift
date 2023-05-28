@@ -9,6 +9,13 @@ import UIKit
 
 final class TimeCell: UICollectionViewCell {
     
+    struct Model {
+        let id: String
+        let name: String
+        let isSelected: Bool
+        let status: ConsultationSlot.Status
+    }
+    
     private let hintLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -26,8 +33,31 @@ final class TimeCell: UICollectionViewCell {
         setUpLayout()
     }
     
-    func configure(with hint: String) {
-        hintLabel.text = hint
+    func configure(with model: Model) {
+        hintLabel.text = model.name
+        if model.isSelected && model.status == .available {
+            makeSelected()
+        } else if model.status == .busy || model.status == .notAvailable {
+            makeUnavailable()
+        } else {
+            makeAvailable()
+        }
+    }
+    
+    func makeAvailable() {
+        contentView.backgroundColor = R.color.timeCellAvailableColor()
+        contentView.layer.borderWidth = 0
+    }
+    
+    func makeUnavailable() {
+        contentView.backgroundColor = R.color.startBackgroundColor()
+        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = R.color.mainSecondaryColor()?.cgColor
+    }
+    
+    func makeSelected() {
+        contentView.backgroundColor = R.color.mainSecondaryColor()
+        contentView.layer.borderWidth = 0
     }
     
     private func setUpLayout() {

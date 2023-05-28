@@ -47,7 +47,7 @@ class CalendarPickerViewController: UIViewController {
     
     // MARK: Calendar Data Values
     
-    private let selectedDate: Date
+    private var selectedDate: Date
     private let consultationSlots: [ConsultationSlot]
     private var baseDate: Date {
         didSet {
@@ -58,14 +58,14 @@ class CalendarPickerViewController: UIViewController {
         }
     }
     
-    private lazy var days = generateDaysInMonth(for: baseDate)
+    private var days: [Day] = []
     
     private var numberOfWeeksInBaseDate: Int {
         calendar.range(of: .weekOfMonth, in: .month, for: baseDate)?.count ?? 0
     }
     
     private let selectedSlotChanged: ((ConsultationSlot) -> Void)
-    private let calendar = Calendar(identifier: .gregorian)
+    private let calendar = Calendar(identifier: .iso8601)
     
     private lazy var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -87,9 +87,11 @@ class CalendarPickerViewController: UIViewController {
         
         super.init(nibName: nil, bundle: nil)
         
-        modalPresentationStyle = .overCurrentContext
-        modalTransitionStyle = .crossDissolve
-        definesPresentationContext = true
+        self.configureSlotsForNewDate(newDate: baseDate)
+        self.days = generateDaysInMonth(for: baseDate)
+//        modalPresentationStyle = .overCurrentContext
+//        modalTransitionStyle = .crossDissolve
+//        definesPresentationContext = true
     }
     
     required init?(coder: NSCoder) {
@@ -152,11 +154,23 @@ class CalendarPickerViewController: UIViewController {
 
 private extension CalendarPickerViewController {
     func configureSlotsForNewDate(newDate: Date) {
-        let slots = consultationSlots.filter({ $0.slotDate == newDate })
+        let slots = consultationSlots.filter({ slot in
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            dateFormatter.timeZone = TimeZone.current
+            dateFormatter.locale = Locale.current
+            let date = dateFormatter.date(from: slot.slotDate)!
+            return date == newDate
+        })
         let data = slots.compactMap { slot in
-            (slot.id, slot.slotTime.split(separator: "-").first ?? "")
+            TimeCell.Model(
+                id: slot.id,
+                name: String(slot.slotTime.split(separator: "-").first ?? ""),
+                isSelected: false,
+                status: slot.status
+            )
         }
-        footerView.timeData = data.map({ ($0.0, String($0.1)) })
+        footerView.timeData = data
     }
 }
 
@@ -261,7 +275,7 @@ private extension CalendarPickerViewController {
         }
         
         // 4
-        let days: [Day] = (0...additionalDays)
+        let days: [Day] = (1...additionalDays)
             .map {
                 generateDay(
                     offsetBy: $0,
@@ -309,8 +323,10 @@ extension CalendarPickerViewController: UICollectionViewDelegateFlowLayout {
         didSelectItemAt indexPath: IndexPath
     ) {
         let day = days[indexPath.row]
-        selectedDateChanged(day.date)
-        dismiss(animated: true, completion: nil)
+        selectedDate = day.date
+        baseDate = day.date
+        days = generateDaysInMonth(for: baseDate)
+        collectionView.reloadData()
     }
     
     func collectionView(

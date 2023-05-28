@@ -10,7 +10,7 @@ import Foundation
 struct SubDepartmentDTO: Codable {
     let id: Int
     let name: String
-    let subDepartmentUrl: String
-    let subDepartmentDescription: String
+    let subDepartmentUrl: String?
+    let subDepartmentDescription: String?
     let department: DepartmentDTO?
 }
