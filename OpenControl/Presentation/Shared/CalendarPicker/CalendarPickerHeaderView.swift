@@ -31,7 +31,7 @@ class CalendarPickerHeaderView: UIView {
     private lazy var leftButton: OCButton = {
         let button = OCButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(R.image.chevronLeftIcon(), for: .normal)
+        button.setImage(R.image.chevronLeftIcon1(), for: .normal)
         button.addTarget(self, action: #selector(didLeftButton), for: .touchUpInside)
         return button
     }()
@@ -39,7 +39,7 @@ class CalendarPickerHeaderView: UIView {
     private lazy var rightButton: OCButton = {
         let button = OCButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(R.image.chevronRightIcon(), for: .normal)
+        button.setImage(R.image.chevronRightIcon1(), for: .normal)
         button.addTarget(self, action: #selector(didRightButton), for: .touchUpInside)
         return button
     }()

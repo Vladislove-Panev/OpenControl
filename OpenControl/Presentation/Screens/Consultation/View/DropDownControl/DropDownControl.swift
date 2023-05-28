@@ -45,7 +45,7 @@ final class DropDownControl: UIControl {
     
     private let chevronImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = R.image.chevronDownIcon()?
+        imageView.image = R.image.chevronDownIcon1()?
             .withTintColor(R.color.dropUnavailableColor() ?? .gray)
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -110,19 +110,19 @@ final class DropDownControl: UIControl {
                 contentView.layer.borderWidth = 0
                 titleLabel.textColor = R.color.buttonTitleColor()
                 if isOpened {
-                    chevronImageView.image = R.image.chevronUpIcon()
+                    chevronImageView.image = R.image.chevronUpIcon1()
                 } else {
-                    chevronImageView.image = R.image.chevronDownIcon()
+                    chevronImageView.image = R.image.chevronDownIcon1()
                 }
                 addShadow()
             } else {
                 contentView.layer.borderWidth = 0
                 titleLabel.textColor = R.color.dropUnavailableColor()
                 if isOpened {
-                    chevronImageView.image = R.image.chevronUpIcon()?
+                    chevronImageView.image = R.image.chevronUpIcon1()?
                         .withTintColor(R.color.dropUnavailableColor() ?? .gray)
                 } else {
-                    chevronImageView.image = R.image.chevronDownIcon()?
+                    chevronImageView.image = R.image.chevronDownIcon1()?
                         .withTintColor(R.color.dropUnavailableColor() ?? .gray)
                 }
                 popShadow()
@@ -146,7 +146,7 @@ final class DropDownControl: UIControl {
         isOpened = true
         searchTextField.isHidden = false
         tableView.isHidden = false
-        chevronImageView.image = R.image.chevronUpIcon()
+        chevronImageView.image = R.image.chevronUpIcon1()
         UIView.animate(withDuration: 0.5,
                        delay: 0, usingSpringWithDamping: 1.0,
                        initialSpringVelocity: 1.0,
@@ -165,7 +165,7 @@ final class DropDownControl: UIControl {
     
     func closeSlide() {
         isOpened = false
-        chevronImageView.image = R.image.chevronDownIcon()
+        chevronImageView.image = R.image.chevronDownIcon1()
         UIView.animate(withDuration: 0.5,
                        delay: 0, usingSpringWithDamping: 1.0,
                        initialSpringVelocity: 1.0,

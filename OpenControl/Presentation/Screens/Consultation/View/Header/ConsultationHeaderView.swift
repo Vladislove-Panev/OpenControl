@@ -12,7 +12,7 @@ final class ConsultationHeaderView: UIView {
     private lazy var leftButton: OCButton = {
         let button = OCButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(R.image.chevronLeftIcon(), for: .normal)
+        button.setImage(R.image.chevronLeftIcon1(), for: .normal)
         button.addTarget(self, action: #selector(didLeftButton), for: .touchUpInside)
         return button
     }()
