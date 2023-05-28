@@ -50,3 +50,5 @@
 ### FIGMA
 
 https://www.figma.com/file/X94K51WgB8aUkeSMeP8cTn/Torpedo?type=design&node-id=0-1&t=bLPtqSaZ1hbtE0Yl-0
+
+<img width="881" alt="image" src="https://github.com/Vladislove-Panev/OpenControl/assets/62390334/5f1ec103-4664-4821-a571-f6d843bcce36">
