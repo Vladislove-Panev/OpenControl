@@ -372,14 +372,13 @@ final class ConsultationViewController: UIViewController {
 extension ConsultationViewController: ConsultationViewInput {
     func showConfirm() {
         let thankYouVC = ThankYouViewController()
-        
         let options = SheetOptions(
             shrinkPresentingViewController: false
         )
         
         let sheetController = SheetViewController(controller: thankYouVC, sizes: [.intrinsic], options: options)
         
-        self.present(sheetController, animated: true, completion: nil)
+        self.present(sheetController, animated: true)
     }
     
     func showError(_ error: Error) {
@@ -388,25 +387,25 @@ extension ConsultationViewController: ConsultationViewInput {
     
     func setAppeal(_ departments: [ConsultationModel.Department]) {
         thirdDropDown.addData(departments.map({ ($0.id, $0.name) }))
-        thirdDropDown.isEnabled = true
+        thirdDropDown.isEnabled = !departments.isEmpty
         fourthDropDown.isEnabled = false
     }
     
     func setDate(_ departments: [ConsultationSlot]) {
         consultationSlots = departments
-        fourthDropDown.isEnabled = true
+        fourthDropDown.isEnabled = !departments.isEmpty
     }
     
     func setSubDepartments(_ departments: [ConsultationModel.Department]) {
         secondDropDown.addData(departments.map({ ($0.id, $0.name) }))
-        secondDropDown.isEnabled = true
+        secondDropDown.isEnabled = !departments.isEmpty
         thirdDropDown.isEnabled = false
         fourthDropDown.isEnabled = false
     }
     
     func setDepartments(_ departments: [ConsultationModel.Department]) {
         firstDropDown.addData(departments.map({ ($0.id, $0.name) }))
-        firstDropDown.isEnabled = true
+        firstDropDown.isEnabled = !departments.isEmpty
         secondDropDown.isEnabled = false
         thirdDropDown.isEnabled = false
         fourthDropDown.isEnabled = false

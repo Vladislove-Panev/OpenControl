@@ -62,6 +62,7 @@ extension ConsultationPresenter: ConsultationModelOutput {
     
     func didFailureGetSubDepartments(error: Error) {
         view?.showError(error)
+        view?.setSubDepartments([])
     }
     
     func didSuccessGetDepartments(data: [ConsultationModel.Department]) {
@@ -70,6 +71,7 @@ extension ConsultationPresenter: ConsultationModelOutput {
     
     func didFailureGetDepartments(error: Error) {
         view?.showError(error)
+        view?.setDepartments([])
     }
     
     func didSuccessConsultationTopic(data: [ConsultationModel.Department]) {
@@ -78,6 +80,7 @@ extension ConsultationPresenter: ConsultationModelOutput {
     
     func didFailureConsultationTopic(error: Error) {
         view?.showError(error)
+        view?.setAppeal([])
     }
     
     func didSuccessConsultationSlot(data: [ConsultationSlot]) {
@@ -85,8 +88,8 @@ extension ConsultationPresenter: ConsultationModelOutput {
     }
     
     func didFailureConsultationSlot(error: Error) {
-        print(error.localizedDescription)
         view?.showError(error)
+        view?.setDate([])
     }
     
     func didSuccessBookConsultation(data: Consultation) {

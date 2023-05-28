@@ -32,7 +32,7 @@ final class DropDownTVCell: UITableViewCell {
     }
     
     private func setupLayout() {
-        
+        contentView.backgroundColor = .white
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(17)

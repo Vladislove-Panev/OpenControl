@@ -43,6 +43,7 @@ final class ThankYouViewController: UIViewController {
     
     private func setupLayout() {
         
+        view.backgroundColor = .white
         view.addSubview(imageView)
         view.addSubview(titleLabel)
         view.addSubview(subTitleLabel)
@@ -60,7 +61,7 @@ final class ThankYouViewController: UIViewController {
             make.centerX.equalToSuperview()
         }
         
-        titleLabel.snp.makeConstraints { make in
+        subTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(14)
             make.leading.trailing.equalToSuperview().inset(65)
             make.centerX.equalToSuperview()

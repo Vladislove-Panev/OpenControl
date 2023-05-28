@@ -9,17 +9,24 @@ import UIKit
 
 final class TimeCell: UICollectionViewCell {
     
-    struct Model {
+    struct Model: Comparable {
         let id: String
         let name: String
         let isSelected: Bool
         let status: ConsultationSlot.Status
+        
+        static func < (lhs: Self, rhs: Self) -> Bool {
+            let firstDigit = Int(String(lhs.name.split(separator: ":").first ?? "0")) ?? 0
+            let secondDigit = Int(String(rhs.name.split(separator: ":").first ?? "0")) ?? 0
+            return firstDigit < secondDigit
+        }
     }
     
     private let hintLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.font = .interMedium500(with: 16)
+        label.textColor = .black
         return label
     }()
     

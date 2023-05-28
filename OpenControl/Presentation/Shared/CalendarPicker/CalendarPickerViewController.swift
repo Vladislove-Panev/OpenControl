@@ -141,6 +141,7 @@ class CalendarPickerViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         headerView.baseDate = baseDate
+        view.backgroundColor = .white
     }
     
     override func viewWillTransition(
@@ -170,7 +171,8 @@ private extension CalendarPickerViewController {
                 status: slot.status
             )
         }
-        footerView.timeData = data
+        let sortedData = data.sorted(by: <)
+        footerView.timeData = sortedData
     }
 }
 

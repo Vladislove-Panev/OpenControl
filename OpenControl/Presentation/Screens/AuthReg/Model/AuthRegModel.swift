@@ -256,7 +256,7 @@ extension AuthRegModel: AuthRegModelInput {
             return isValid
         case .repeatPass:
             let oldValue = regUserEnteredData
-            let isValid = validator.isPasswordValid(text) || text == firstEnteredPass
+            let isValid = validator.isPasswordValid(text) && text == firstEnteredPass
             let newValue = RegEnteredData(
                 name: oldValue?.name ?? ("", false),
                 surname: oldValue?.surname ?? ("", false),

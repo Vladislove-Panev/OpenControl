@@ -12,8 +12,14 @@ final class DropDownControl: UIControl {
     var didSelectItemWithId: ((String) -> Void)?
     
     private(set) var isOpened = false
+    private var isSearching = false
     private var title: String = ""
     private var data: [(id: String, name: String)] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    private var searchData: [(id: String, name: String)] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -45,7 +51,7 @@ final class DropDownControl: UIControl {
         return imageView
     }()
     
-    private let searchTextField: OCTextField = {
+    private lazy var searchTextField: OCTextField = {
         let textField = OCTextField()
         textField.insetX = 18
         textField.font = .interRegular400(with: 17)
@@ -57,13 +63,14 @@ final class DropDownControl: UIControl {
             string: "Найти",
             attributes: [NSAttributedString.Key.foregroundColor: R.color.textFieldPlaceholderColor() ?? .gray]
         )
+        textField.addTarget(self, action: #selector(searchValueChanged(_:)), for: .editingChanged)
         return textField
     }()
     
     private(set) lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.backgroundColor = .white
-        tableView.rowHeight = 44
+        tableView.rowHeight = 50
         tableView.separatorStyle = .none
         tableView.register(DropDownTVCell.self)
         tableView.showsVerticalScrollIndicator = false
@@ -224,16 +231,28 @@ final class DropDownControl: UIControl {
         layer.shadowOpacity = 0
         layer.shadowRadius = 0
     }
+    
+    @objc private func searchValueChanged(_ sender: UITextField) {
+        guard let text = sender.text,
+              !text.isEmpty else {
+            isSearching = false
+            tableView.reloadData()
+            return
+        }
+        
+        isSearching = true
+        searchData = data.filter({ $0.name.contains(text) })
+    }
 }
 
 extension DropDownControl: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        data.count
+        isSearching ? searchData.count : data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DropDownTVCell.reuseIdentifier, for: indexPath) as? DropDownTVCell else { return UITableViewCell() }
-        cell.configure(with: data[indexPath.item].name)
+        cell.configure(with: isSearching ? searchData[indexPath.item].name : data[indexPath.item].name)
         return cell
     }
 }

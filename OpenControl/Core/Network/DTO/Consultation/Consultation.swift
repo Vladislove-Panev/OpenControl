@@ -8,7 +8,7 @@
 import Foundation
 
 struct Consultation: Codable {
-    let id: Int
+    let id: String
     let topic: String?
     let starDateTime: Date?
     let finishDateTime: Date?
@@ -16,6 +16,6 @@ struct Consultation: Codable {
     let otherInformation: String?
 
     let userId: CLong
-    let departmentUserId: CLong
-    let consultationSlotId: Int
+    let departmentUserId: CLong?
+    let consultationSlotId: String
 }
