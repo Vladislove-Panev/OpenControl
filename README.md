@@ -34,3 +34,7 @@
 - IQKeyboardManagerSwift
 - Rswift
 - SnapKit
+
+### АРХИТЕКТУРА 
+
+- MVP
