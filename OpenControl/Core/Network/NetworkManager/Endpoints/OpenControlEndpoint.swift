@@ -22,6 +22,8 @@ enum OpenControlEndpoint: Endpoint {
     case department
     case subDepartment(id: String)
     
+    case chatBotHandle(id: String, userId: Int, step: Int, message: String, chatBotMessageResponseType: Int)
+    
     var scheme: String {
         switch self {
         default:
@@ -52,6 +54,8 @@ enum OpenControlEndpoint: Endpoint {
             return "/Department"
         case .subDepartment(let id):
             return "/SubDepartment/by-department/\(id)"
+        case .chatBotHandle:
+            return "/ChatBot/handle"
         }
     }
     
@@ -71,6 +75,8 @@ enum OpenControlEndpoint: Endpoint {
             return "GET"
         case .subDepartment:
             return "GET"
+        case .chatBotHandle:
+            return "POST"
         }
     }
     
@@ -101,6 +107,15 @@ enum OpenControlEndpoint: Endpoint {
                 "topic": data.topic,
                 "userId": data.userId,
                 "consultationSlotId": data.consultationSlotId
+            ]
+            return params
+        case .chatBotHandle(let id, let userId, let step, let message, let chatBotMessageResponseType):
+            let params: [String: Any] = [
+                "id": id,
+                "userId": userId,
+                "step": step,
+                "message": message,
+                "chatBotMessageResponseType": chatBotMessageResponseType
             ]
             return params
         default:

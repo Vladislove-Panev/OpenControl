@@ -102,6 +102,7 @@
 		8B78C9DD2A23536D00B6C977 /* SubDepartment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9DC2A23536D00B6C977 /* SubDepartment.swift */; };
 		8B78C9E02A23543000B6C977 /* ConsultationTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9DF2A23543000B6C977 /* ConsultationTopic.swift */; };
 		8B78C9E62A23824E00B6C977 /* ThankYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B78C9E52A23824E00B6C977 /* ThankYouViewController.swift */; };
+		8BE3E26E2A3341E000CFC367 /* ChatBotService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE3E26D2A3341E000CFC367 /* ChatBotService.swift */; };
 		8BEE19012A1CA99A0006EEA0 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 8BEE19002A1CA99A0006EEA0 /* RswiftLibrary */; };
 		8BEE19072A1CAA340006EEA0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8BEE19062A1CAA340006EEA0 /* SnapKit */; };
 		8BEE190D2A1CAB280006EEA0 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE19092A1CAB280006EEA0 /* StartPresenter.swift */; };
@@ -232,6 +233,7 @@
 		8B78C9DC2A23536D00B6C977 /* SubDepartment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubDepartment.swift; sourceTree = "<group>"; };
 		8B78C9DF2A23543000B6C977 /* ConsultationTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultationTopic.swift; sourceTree = "<group>"; };
 		8B78C9E52A23824E00B6C977 /* ThankYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankYouViewController.swift; sourceTree = "<group>"; };
+		8BE3E26D2A3341E000CFC367 /* ChatBotService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotService.swift; sourceTree = "<group>"; };
 		8BEE19092A1CAB280006EEA0 /* StartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
 		8BEE190A2A1CAB280006EEA0 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		8BEE190B2A1CAB280006EEA0 /* StartAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAssembly.swift; sourceTree = "<group>"; };
@@ -730,6 +732,7 @@
 				8B78C9CE2A2348C100B6C977 /* UserDefaults */,
 				8B78C9C82A232A9100B6C977 /* Auth */,
 				8B78C9D62A234F9900B6C977 /* Consultation */,
+				8BE3E26C2A3341C000CFC367 /* ChatBot */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -764,6 +767,14 @@
 				8B78C9E52A23824E00B6C977 /* ThankYouViewController.swift */,
 			);
 			path = ThankYou;
+			sourceTree = "<group>";
+		};
+		8BE3E26C2A3341C000CFC367 /* ChatBot */ = {
+			isa = PBXGroup;
+			children = (
+				8BE3E26D2A3341E000CFC367 /* ChatBotService.swift */,
+			);
+			path = ChatBot;
 			sourceTree = "<group>";
 		};
 		8BEE19082A1CAA580006EEA0 /* Start */ = {
@@ -1172,6 +1183,7 @@
 				8BEE19202A1CB2820006EEA0 /* UIView+Extensions.swift in Sources */,
 				8BEE19262A1CC4430006EEA0 /* UICollectionViewCell+Extensions.swift in Sources */,
 				8B78C8EA2A1E2C5100B6C977 /* TabBarPresenter.swift in Sources */,
+				8BE3E26E2A3341E000CFC367 /* ChatBotService.swift in Sources */,
 				8BF087A92A1A692B000F7846 /* NetworkManager.swift in Sources */,
 				8B78C93C2A1F67E100B6C977 /* ChatBotPresenter.swift in Sources */,
 				8B78C9A92A2234BF00B6C977 /* CalendarPickerViewController.swift in Sources */,

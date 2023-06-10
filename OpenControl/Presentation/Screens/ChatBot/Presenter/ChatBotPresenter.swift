@@ -18,6 +18,8 @@ final class ChatBotPresenter: ChatBotPresenterInput {
     private weak var view: ChatBotViewInput?
     private var model: ChatBotModelInput
     
+    private var messages: [ChatBotModel.Message] = []
+    
     init(view: ChatBotViewInput, model: ChatBotModelInput) {
         self.view = view
         self.model = model
@@ -25,11 +27,11 @@ final class ChatBotPresenter: ChatBotPresenterInput {
     }
     
     func numberOfRowsInSection(in section: Int) -> Int {
-        model.fetchMessages().count
+        messages.count
     }
     
     func model(for indexPath: IndexPath) -> ChatBotModel.Message {
-        model.fetchMessages()[indexPath.item]
+        messages[indexPath.item]
     }
     
     private func setupOutputs() {
@@ -39,9 +41,18 @@ final class ChatBotPresenter: ChatBotPresenterInput {
 }
 
 extension ChatBotPresenter: ChatBotViewOutput {
-    
+    func viewDidLoad() {
+        model.fetchMessages()
+    }
 }
 
 extension ChatBotPresenter: ChatBotModelOutput {
+    func didSuccessGetGreeting(messages: [ChatBotModel.Message]) {
+        self.messages = messages
+        view?.updateTableView()
+    }
     
+    func didFailedGetGreeting(error: Error) {
+        print(error.localizedDescription)
+    }
 }

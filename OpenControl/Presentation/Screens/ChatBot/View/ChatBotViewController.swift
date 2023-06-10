@@ -11,10 +11,11 @@ import IQKeyboardManagerSwift
 protocol ChatBotViewInput: AnyObject {
     var presenter: ChatBotPresenterInput? { get set }
     var output: ChatBotViewOutput? { get set }
+    func updateTableView()
 }
 
 protocol ChatBotViewOutput: AnyObject {
-    
+    func viewDidLoad()
 }
 
 final class ChatBotViewController: UIViewController {
@@ -49,15 +50,12 @@ final class ChatBotViewController: UIViewController {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.keyboardDistanceFromTextField = 10
         IQKeyboardManager.shared.enableAutoToolbar = false
+        
+        output?.viewDidLoad()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if isFirstLaunch {
-            updateContentInsetForTableView(tableView: tableView, animated: false)
-            scrollToBottom(animated: false)
-            isFirstLaunch = false
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -123,7 +121,14 @@ final class ChatBotViewController: UIViewController {
 }
 
 extension ChatBotViewController: ChatBotViewInput {
-    
+    func updateTableView() {
+        tableView.reloadData()
+        if isFirstLaunch {
+            updateContentInsetForTableView(tableView: tableView, animated: false)
+            scrollToBottom(animated: false)
+            isFirstLaunch = false
+        }
+    }
 }
 
 extension ChatBotViewController: UITableViewDataSource {
